@@ -1,12 +1,171 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>C.E.C. Irmã Ambrósia Sabatovich</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+
+  <!-- Barra de Acessibilidade -->
+  <div class="accessibility-bar">
+    <span>Acessibilidade:</span>
+    <button onclick="changeFontSize(1)">A+</button>
+    <button onclick="changeFontSize(-1)">A-</button>
+    <button onclick="toggleContrast()">Alto Contraste</button>
+  </div>
+
+  <!-- Cabeçalho / Logotipo -->
+  <header>
+    <div class="header-logo">
+      <div class="logo-placeholder">
+        <img src="https://via.placeholder.com/60" alt="Logotipo da Escola">
+      </div>
+      <div>
+        <h1>C.E.C. Irmã Ambrósia Sabatovich <span class="badge-public">Escola Pública Estadual</span></h1>
+        <p>Educação do Campo — São José dos Pinhais - PR</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main>
+
+    <!-- História da Escola -->
+    <section>
+      <div class="card">
+        <h2>História da Escola</h2>
+        <p>Fundado na Colônia Marcelino, comunidade tradicional formada por imigrantes ucranianos, o <strong>Colégio Estadual do Campo Irmã Ambrósia Sabatovich</strong> teve suas origens ligadas às atividades comunitárias e educacionais da Igreja Católica Ucraniana de Rito Bizantino e da Congregação das Irmãs Servas de Maria Imaculada.</p>
+        <p>O nome homenageia a Irmã Ambrósia Sabatovich, religiosa que dedicou sua vida ao ensino rural e faleceu heroicamente em 1943 ao tentar resgatar crianças durante um incêndio. Atualmente, a instituição é pública e gerida pelo Governo do Estado do Paraná (SEED-PR).</p>
+      </div>
+    </section>
+
+    <!-- Níveis de Ensino e Disciplinas -->
+    <section>
+      <div class="grid">
+        <div class="card">
+          <h2>Etapas de Ensino</h2>
+          <ul>
+            <li><strong>Ensino Fundamental II:</strong> 6º ao 9º ano</li>
+            <li><strong>Ensino Médio:</strong> 1º ao 3º ano</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h2>Disciplinas Ofertadas</h2>
+          <p>Língua Portuguesa, Matemática, História, Geografia, Ciências, Biologia, Física, Química, Educação Física, Arte, Inglês, Filosofia, Sociologia e conteúdos voltados à Educação do Campo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Infraestrutura e Acessibilidade -->
+    <section>
+      <div class="card">
+        <h2>Infraestrutura e Acessibilidade</h2>
+        <ul class="tags">
+          <li>Escola com Acessibilidade</li>
+          <li>Dependências com Acessibilidade</li>
+          <li>Sanitários com Acessibilidade</li>
+          <li>Alimentação Fornecida (Merenda Escolar)</li>
+          <li>Água Filtrada</li>
+          <li>Sanitários na Área Interna</li>
+          <li>Biblioteca</li>
+          <li>Cozinha</li>
+          <li>Laboratório de Informática</li>
+          <li>Laboratório de Ciências</li>
+          <li>Quadra de Esportes</li>
+          <li>Sala da Diretoria</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Equipe Escolar -->
+    <section>
+      <div class="card">
+        <h2>Equipe Escolar</h2>
+        <p>Estrutura administrativa e pedagógica responsável pelo funcionamento da unidade:</p>
+        <ul class="team-list">
+          <li><strong>Direção Geral:</strong> Equipe gestora eleita/designada via SEED-PR.</li>
+          <li><strong>Equipe Pedagógica:</strong> Pedagogas responsáveis pelo acompanhamento de aprendizagem.</li>
+          <li><strong>Corpo Docente:</strong> Professores das disciplinas do Ensino Fundamental e Médio.</li>
+          <li><strong>Secretaria Escolar e Serviços Gerais:</strong> Suporte administrativo e operacional.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Notícias, Comunicados e Certificados -->
+    <section>
+      <div class="grid">
+        <div class="card">
+          <h2>Notícias e Comunicados</h2>
+          <article>
+            <h3>Reunião de Pais e Mestres</h3>
+            <p><em>05 de Setembro:</em> Informamos que a reunião bimestral será realizada no auditório da escola.</p>
+          </article>
+        </div>
+        <div class="card">
+          <h2>Certificados e Documentos</h2>
+          <p>Para solicitação de históricos escolares, certificados de conclusão e declarações de matrícula, dirija-se à Secretaria Escolar munido de documento com foto.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fotos e Galeria -->
+    <section>
+      <div class="card">
+        <h2>Galeria de Fotos</h2>
+        <h3>Instalações Internas e Externas</h3>
+        <div class="gallery">
+          <div class="gallery-item">Fachada</div>
+          <div class="gallery-item">Quadra</div>
+          <div class="gallery-item">Biblioteca</div>
+          <div class="gallery-item">Laboratório</div>
+        </div>
+        <h3 class="section-subtitle">Eventos Escolares</h3>
+        <div class="gallery">
+          <div class="gallery-item">Festa Cultural</div>
+          <div class="gallery-item">Feira de Ciências</div>
+          <div class="gallery-item">Jogos Escolares</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section>
+      <div class="card">
+        <h2>Depoimentos</h2>
+        <blockquote class="testimonial">
+          "Lecionar na escola da Colônia Marcelino é integrar educação pública com a preservação histórica do nosso campo."
+          <br><strong>— Depoimento de Professor</strong>
+        </blockquote>
+        <blockquote class="testimonial">
+          "Minha formação no colégio abriu portas para minha trajetória acadêmica e profissional."
+          <br><strong>— Depoimento de Ex-Aluno</strong>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Localização e Contato -->
+    <section>
+      <div class="card">
+        <h2>Localização</h2>
+        <p><strong>Endereço:</strong> Estrada Vereador Domingos Benevenuto Moletta, 17173 — Colônia Marcelino, São José dos Pinhais - PR</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Rodapé e Contatos -->
+  <footer>
+    <h2>Contato</h2>
+    <p>Fale diretamente com a secretaria da escola:</p>
+    <div class="contact-buttons">
+      <a href="https://wa.me/5500000000000" class="btn-whatsapp" target="_blank">WhatsApp Escola</a>
+      <a href="mailto:escola@escola.pr.gov.br" class="btn-gmail">Enviar E-mail (Gmail)</a>
+    </div>
+    <p class="footer-copy">Colégio Estadual do Campo Irmã Ambrósia Sabatovich — SEED-PR</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
-
