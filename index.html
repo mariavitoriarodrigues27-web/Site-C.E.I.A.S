@@ -3,168 +3,555 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>C.E.C. Irmã Ambrósia Sabatovich</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Colégio Estadual do Campo Irmã Ambrósia Sabatovich</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700;900&display=swap" rel="stylesheet">
+  
+  <!-- Icons & Styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
-<body>
+<body class="dark-theme">
 
-  <!-- Barra de Acessibilidade -->
-  <div class="accessibility-bar">
-    <span>Acessibilidade:</span>
-    <button onclick="changeFontSize(1)">A+</button>
-    <button onclick="changeFontSize(-1)">A-</button>
-    <button onclick="toggleContrast()">Alto Contraste</button>
+  <!-- Acessibilidade Topbar -->
+  <div class="accessibility-bar" id="accessibilityBar">
+    <div class="container acc-content">
+      <span class="acc-title"><i class="fa-solid fa-universal-access"></i> Acessibilidade & Opções de Visualização</span>
+      <div class="acc-controls">
+        <button onclick="adjustFont(1)" title="Aumentar Fonte" aria-label="Aumentar Fonte">A+</button>
+        <button onclick="adjustFont(-1)" title="Diminuir Fonte" aria-label="Diminuir Fonte">A-</button>
+        <button onclick="toggleTheme()" title="Alternar Alto Contraste" aria-label="Alternar Alto Contraste">
+          <i class="fa-solid fa-circle-half-stroke"></i> Contraste
+        </button>
+      </div>
+    </div>
   </div>
 
-  <!-- Cabeçalho / Logotipo -->
-  <header>
-    <div class="header-logo">
-      <div class="logo-placeholder">
-        <img src="https://via.placeholder.com/60" alt="Logotipo da Escola">
-      </div>
-      <div>
-        <h1>C.E.C. Irmã Ambrósia Sabatovich <span class="badge-public">Escola Pública Estadual</span></h1>
-        <p>Educação do Campo — São José dos Pinhais - PR</p>
-      </div>
+  <!-- Navbar Glassmorphism -->
+  <header class="navbar-header" id="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="brand-logo">
+        <div class="logo-emblem">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <div class="brand-text">
+          <span class="school-name">C.E.C. Irmã Ambrósia</span>
+          <span class="school-tag"><i class="fa-solid fa-seedling"></i> Educação do Campo • Pública</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="#historia" class="nav-link"><i class="fa-solid fa-book-bookmark"></i> História</a>
+        <a href="#ensino" class="nav-link"><i class="fa-solid fa-chalkboard-user"></i> Ensino</a>
+        <a href="#infraestrutura" class="nav-link"><i class="fa-solid fa-building-columns"></i> Estrutura</a>
+        <a href="#equipe" class="nav-link"><i class="fa-solid fa-users"></i> Equipe</a>
+        <a href="#galeria" class="nav-link"><i class="fa-solid fa-images"></i> Galeria</a>
+        <a href="#contato" class="btn-nav-action"><i class="fa-brands fa-whatsapp"></i> Fale Conosco</a>
+      </nav>
+
+      <button class="mobile-toggle" id="menuToggle" aria-label="Abrir Menu">
+        <i class="fa-solid fa-bars-staggered"></i>
+      </button>
     </div>
   </header>
 
-  <!-- Conteúdo Principal -->
-  <main>
-
-    <!-- História da Escola -->
-    <section>
-      <div class="card">
-        <h2>História da Escola</h2>
-        <p>Fundado na Colônia Marcelino, comunidade tradicional formada por imigrantes ucranianos, o <strong>Colégio Estadual do Campo Irmã Ambrósia Sabatovich</strong> teve suas origens ligadas às atividades comunitárias e educacionais da Igreja Católica Ucraniana de Rito Bizantino e da Congregação das Irmãs Servas de Maria Imaculada.</p>
-        <p>O nome homenageia a Irmã Ambrósia Sabatovich, religiosa que dedicou sua vida ao ensino rural e faleceu heroicamente em 1943 ao tentar resgatar crianças durante um incêndio. Atualmente, a instituição é pública e gerida pelo Governo do Estado do Paraná (SEED-PR).</p>
+  <!-- Hero Section Cinemática -->
+  <section class="hero-section" id="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-particles" id="heroParticles"></div>
+    
+    <div class="container hero-content">
+      <div class="badge-gold glow-effect">
+        <i class="fa-solid fa-award"></i> Tradição, Cultura e Transformação Rural
       </div>
-    </section>
+      
+      <h1 class="hero-title">
+        Colégio Estadual do Campo <br>
+        <span class="gradient-text">Irmã Ambrósia Sabatovich</span>
+      </h1>
+      
+      <p class="hero-subtitle">
+        Formando gerações no coração da Colônia Marcelino em São José dos Pinhais. Uma instituição pública estadual dedicada à excelência no Ensino Fundamental e Médio integrando saber científico e identidade do campo.
+      </p>
 
-    <!-- Níveis de Ensino e Disciplinas -->
-    <section>
-      <div class="grid">
-        <div class="card">
-          <h2>Etapas de Ensino</h2>
-          <ul>
-            <li><strong>Ensino Fundamental II:</strong> 6º ao 9º ano</li>
-            <li><strong>Ensino Médio:</strong> 1º ao 3º ano</li>
+      <div class="hero-cta-group">
+        <a href="https://wa.me/554130351245" target="_blank" class="btn-primary glow-btn">
+          <i class="fa-brands fa-whatsapp"></i> Secretária Acadêmica
+        </a>
+        <a href="#historia" class="btn-secondary">
+          <i class="fa-solid fa-compass"></i> Conhecer Nossa Jornada
+        </a>
+      </div>
+
+      <div class="hero-stats-strip">
+        <div class="stat-card">
+          <div class="stat-number" data-target="470">0+</div>
+          <div class="stat-label">Alunos Atendidos</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">6º ao 3º</div>
+          <div class="stat-label">Fund. II & Ensino Médio</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Ensino Público e Gratuito</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="stat-label">Colônia Marcelino - SJP</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- História e Origem -->
+  <section class="section-padding" id="historia">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="subheading"><i class="fa-solid fa-landmark"></i> Raízes Históricas</span>
+        <h2 class="section-title">Uma História Tecida Pela Dedicação e Heroísmo</h2>
+        <div class="title-line"></div>
+      </div>
+
+      <div class="history-grid">
+        <div class="history-card glass-panel highlight-border">
+          <div class="card-icon"><i class="fa-solid fa-church"></i></div>
+          <h3>A Origem Católica e Comunitária</h3>
+          <p>
+            Na tradicional Colônia Marcelino — comunidade fundada por imigrantes ucranianos —, as primeiras iniciativas educacionais surgiram de forma comunitária, impulsionadas pela Igreja Católica Ucraniana de Rito Bizantino e pela Congregação das Irmãs Servas de Maria Imaculada, visando alfabetizar e preservar a cultura local.
+          </p>
+        </div>
+
+        <div class="history-card glass-panel highlight-border">
+          <div class="card-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+          <h3>O Legado de Irmã Ambrósia Sabatovich</h3>
+          <p>
+            A escola recebe o nome da religiosa Ana Sabatovich (Irmã Ambrósia), nascida na Ucrânia em 1894. Em fevereiro de 1943, faleceu heroicamente num incêndio ao tentar resgatar crianças acolhidas na instituição. Seu exemplo de altruísmo tornou-se patrimônio imaterial da comunidade.
+          </p>
+        </div>
+
+        <div class="history-card glass-panel highlight-border">
+          <div class="card-icon"><i class="fa-solid fa-building-flag"></i></div>
+          <h3>A Consolidação Pública Estadual</h3>
+          <p>
+            Com o crescimento da região rural de São José dos Pinhais, a estrutura consolidou-se como instituição pública pertencente à rede da Secretaria de Estado da Educação do Paraná (SEED-PR), vinculada ao NRE Área Metropolitana Sul.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ensino & Matriz Curricular -->
+  <section class="section-padding bg-alt" id="ensino">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="subheading"><i class="fa-solid fa-book-open"></i> Matriz Pedagógica</span>
+        <h2 class="section-title">Ensino Fundamental II e Médio Regular</h2>
+        <p class="section-desc">Grade curricular alinhada à BNCC com metodologias ativas integradas à realidade do Campo.</p>
+      </div>
+
+      <div class="grid-2col">
+        <div class="curriculum-box glass-panel">
+          <div class="box-header">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <div>
+              <h3>Etapas Ofertadas</h3>
+              <span>Atendimento em Turnos Regulares</span>
+            </div>
+          </div>
+          <ul class="styled-list">
+            <li><i class="fa-solid fa-check-double"></i> <strong>Ensino Fundamental II:</strong> Do 6º ao 9º Ano.</li>
+            <li><i class="fa-solid fa-check-double"></i> <strong>Ensino Médio Regular:</strong> Do 1º ao 3º Ano.</li>
+            <li><i class="fa-solid fa-check-double"></i> <strong>Educação do Campo:</strong> Diretrizes adaptadas ao calendário e cultura agrícola.</li>
+            <li><i class="fa-solid fa-check-double"></i> <strong>Gratuidade Total:</strong> Escola 100% Pública mantida pelo Estado do Paraná.</li>
           </ul>
         </div>
-        <div class="card">
-          <h2>Disciplinas Ofertadas</h2>
-          <p>Língua Portuguesa, Matemática, História, Geografia, Ciências, Biologia, Física, Química, Educação Física, Arte, Inglês, Filosofia, Sociologia e conteúdos voltados à Educação do Campo.</p>
+
+        <div class="curriculum-box glass-panel">
+          <div class="box-header">
+            <i class="fa-solid fa-atom"></i>
+            <div>
+              <h3>Disciplinas Curriculares</h3>
+              <span>Formação Integral do Estudante</span>
+            </div>
+          </div>
+          <div class="tags-container">
+            <span class="tag-pill"><i class="fa-solid fa-book"></i> Língua Portuguesa</span>
+            <span class="tag-pill"><i class="fa-solid fa-calculator"></i> Matemática</span>
+            <span class="tag-pill"><i class="fa-solid fa-earth-americas"></i> Geografia</span>
+            <span class="tag-pill"><i class="fa-solid fa-hourglass-half"></i> História</span>
+            <span class="tag-pill"><i class="fa-solid fa-vial"></i> Química</span>
+            <span class="tag-pill"><i class="fa-solid fa-bolt"></i> Física</span>
+            <span class="tag-pill"><i class="fa-solid fa-dna"></i> Biologia / Ciências</span>
+            <span class="tag-pill"><i class="fa-solid fa-language"></i> Língua Inglesa</span>
+            <span class="tag-pill"><i class="fa-solid fa-palette"></i> Arte</span>
+            <span class="tag-pill"><i class="fa-solid fa-basketball"></i> Educação Física</span>
+            <span class="tag-pill"><i class="fa-solid fa-brain"></i> Filosofia & Sociologia</span>
+            <span class="tag-pill"><i class="fa-solid fa-wheat-awn"></i> Saberes do Campo</span>
+          </div>
         </div>
       </div>
-    </section>
-
-    <!-- Infraestrutura e Acessibilidade -->
-    <section>
-      <div class="card">
-        <h2>Infraestrutura e Acessibilidade</h2>
-        <ul class="tags">
-          <li>Escola com Acessibilidade</li>
-          <li>Dependências com Acessibilidade</li>
-          <li>Sanitários com Acessibilidade</li>
-          <li>Alimentação Fornecida (Merenda Escolar)</li>
-          <li>Água Filtrada</li>
-          <li>Sanitários na Área Interna</li>
-          <li>Biblioteca</li>
-          <li>Cozinha</li>
-          <li>Laboratório de Informática</li>
-          <li>Laboratório de Ciências</li>
-          <li>Quadra de Esportes</li>
-          <li>Sala da Diretoria</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Equipe Escolar -->
-    <section>
-      <div class="card">
-        <h2>Equipe Escolar</h2>
-        <p>Estrutura administrativa e pedagógica responsável pelo funcionamento da unidade:</p>
-        <ul class="team-list">
-          <li><strong>Direção Geral:</strong> Equipe gestora eleita/designada via SEED-PR.</li>
-          <li><strong>Equipe Pedagógica:</strong> Pedagogas responsáveis pelo acompanhamento de aprendizagem.</li>
-          <li><strong>Corpo Docente:</strong> Professores das disciplinas do Ensino Fundamental e Médio.</li>
-          <li><strong>Secretaria Escolar e Serviços Gerais:</strong> Suporte administrativo e operacional.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Notícias, Comunicados e Certificados -->
-    <section>
-      <div class="grid">
-        <div class="card">
-          <h2>Notícias e Comunicados</h2>
-          <article>
-            <h3>Reunião de Pais e Mestres</h3>
-            <p><em>05 de Setembro:</em> Informamos que a reunião bimestral será realizada no auditório da escola.</p>
-          </article>
-        </div>
-        <div class="card">
-          <h2>Certificados e Documentos</h2>
-          <p>Para solicitação de históricos escolares, certificados de conclusão e declarações de matrícula, dirija-se à Secretaria Escolar munido de documento com foto.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Fotos e Galeria -->
-    <section>
-      <div class="card">
-        <h2>Galeria de Fotos</h2>
-        <h3>Instalações Internas e Externas</h3>
-        <div class="gallery">
-          <div class="gallery-item">Fachada</div>
-          <div class="gallery-item">Quadra</div>
-          <div class="gallery-item">Biblioteca</div>
-          <div class="gallery-item">Laboratório</div>
-        </div>
-        <h3 class="section-subtitle">Eventos Escolares</h3>
-        <div class="gallery">
-          <div class="gallery-item">Festa Cultural</div>
-          <div class="gallery-item">Feira de Ciências</div>
-          <div class="gallery-item">Jogos Escolares</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Depoimentos -->
-    <section>
-      <div class="card">
-        <h2>Depoimentos</h2>
-        <blockquote class="testimonial">
-          "Lecionar na escola da Colônia Marcelino é integrar educação pública com a preservação histórica do nosso campo."
-          <br><strong>— Depoimento de Professor</strong>
-        </blockquote>
-        <blockquote class="testimonial">
-          "Minha formação no colégio abriu portas para minha trajetória acadêmica e profissional."
-          <br><strong>— Depoimento de Ex-Aluno</strong>
-        </blockquote>
-      </div>
-    </section>
-
-    <!-- Localização e Contato -->
-    <section>
-      <div class="card">
-        <h2>Localização</h2>
-        <p><strong>Endereço:</strong> Estrada Vereador Domingos Benevenuto Moletta, 17173 — Colônia Marcelino, São José dos Pinhais - PR</p>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Rodapé e Contatos -->
-  <footer>
-    <h2>Contato</h2>
-    <p>Fale diretamente com a secretaria da escola:</p>
-    <div class="contact-buttons">
-      <a href="https://wa.me/5500000000000" class="btn-whatsapp" target="_blank">WhatsApp Escola</a>
-      <a href="mailto:escola@escola.pr.gov.br" class="btn-gmail">Enviar E-mail (Gmail)</a>
     </div>
-    <p class="footer-copy">Colégio Estadual do Campo Irmã Ambrósia Sabatovich — SEED-PR</p>
+  </section>
+
+  <!-- Infraestrutura 3D Cards -->
+  <section class="section-padding" id="infraestrutura">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="subheading"><i class="fa-solid fa-shield-halved"></i> Estrutura & Acessibilidade</span>
+        <h2 class="section-title">Infraestrutura Completa e Inclusiva</h2>
+        <div class="title-line"></div>
+      </div>
+
+      <div class="infra-grid">
+        <div class="infra-card glass-panel">
+          <i class="fa-solid fa-wheelchair-move infra-icon"></i>
+          <h4>Acessibilidade Arquitetônica</h4>
+          <p>Rampas, sanitários adaptados e dependências totalmente acessíveis para PWD.</p>
+        </div>
+
+        <div class="infra-card glass-panel">
+          <i class="fa-solid fa-utensils infra-icon"></i>
+          <h4>Alimentação & Nutrição</h4>
+          <p>Refeições balanceadas fornecidas pelo programa estadual de merenda escolar.</p>
+        </div>
+
+        <div class="infra-card glass-panel">
+          <i class="fa-solid fa-laptop-code infra-icon"></i>
+          <h4>Laboratório de Informática</h4>
+          <p>Equipamentos para inclusão digital e pesquisas acadêmicas orientadas.</p>
+        </div>
+
+        <div class="infra-card glass-panel">
+          <i class="fa-solid fa-microscope infra-icon"></i>
+          <h4>Laboratório de Ciências</h4>
+          <p>Espaço prático para experimentos de Biologia, Física e Química.</p>
+        </div>
+
+        <div class="infra-card glass-panel">
+          <i class="fa-solid fa-book-bookmark infra-icon"></i>
+          <h4>Biblioteca Comunitária</h4>
+          <p>Acervo diversificado de literatura, livros didáticos e espaço de leitura quieto.</p>
+        </div>
+
+        <div class="infra-card glass-panel">
+          <i class="fa-solid fa-trophy infra-icon"></i>
+          <h4>Quadra Poliesportiva</h4>
+          <p>Espaço para atividades físicas, torneios interclasses e eventos festivos.</p>
+        </div>
+
+        <div class="infra-card glass-panel">
+          <i class="fa-solid fa-filter infra-icon"></i>
+          <h4>Água Filtrada & Sanitários</h4>
+          <p>Pontos de água potável purificada e banheiros internos estruturados.</p>
+        </div>
+
+        <div class="infra-card glass-panel">
+          <i class="fa-solid fa-user-tie infra-icon"></i>
+          <h4>Secretaria & Diretoria</h4>
+          <p>Ambientes administrativos para atendimento humanizado a pais e alunos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Equipe Escolar -->
+  <section class="section-padding bg-alt" id="equipe">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="subheading"><i class="fa-solid fa-user-gear"></i> Corpo Funcional</span>
+        <h2 class="section-title">Equipe Escolar & Gestão</h2>
+        <p class="section-desc">Profissionais capacitados e comprometidos com a qualidade da Educação Pública no Campo.</p>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-card glass-panel">
+          <div class="team-avatar"><i class="fa-solid fa-user-tie"></i></div>
+          <h4>Direção Geral</h4>
+          <p class="role">Gestão Administrativa & Escolar</p>
+          <p class="desc">Responsável pela liderança pedagógica, gestão de recursos estaduais e articulação com o NRE.</p>
+        </div>
+
+        <div class="team-card glass-panel">
+          <div class="team-avatar"><i class="fa-solid fa-heart-circle-check"></i></div>
+          <h4>Equipe Pedagógica</h4>
+          <p class="role">Acompanhamento do Estudante</p>
+          <p class="desc">Apoio contínuo ao desenvolvimento cognitivo, inclusão e suporte aos professores.</p>
+        </div>
+
+        <div class="team-card glass-panel">
+          <div class="team-avatar"><i class="fa-solid fa-chalkboard-user"></i></div>
+          <h4>Corpo Docente</h4>
+          <p class="role">Professores Licenciados</p>
+          <p class="desc">Aproximadamente 19 docentes especializados nas áreas do conhecimento da BNCC.</p>
+        </div>
+
+        <div class="team-card glass-panel">
+          <div class="team-avatar"><i class="fa-solid fa-paste"></i></div>
+          <h4>Secretaria & Serviços</h4>
+          <p class="role">Suporte Técnico & Operacional</p>
+          <p class="desc">Atendimento documental, registros acadêmicos, merenda e conservação escolar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galeria de Fotos Interativa -->
+  <section class="section-padding" id="galeria">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="subheading"><i class="fa-solid fa-camera-retro"></i> Registros Visuais</span>
+        <h2 class="section-title">Nossa Estrutura e Momentos Marcantes</h2>
+        <div class="title-line"></div>
+      </div>
+
+      <div class="gallery-tabs">
+        <button class="tab-btn active" onclick="filterGallery('all')">Todos</button>
+        <button class="tab-btn" onclick="filterGallery('estrutura')">Estrutura Interna/Externa</button>
+        <button class="tab-btn" onclick="filterGallery('eventos')">Eventos & Projetos</button>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-item estrutura" onclick="openLightbox('https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1200&q=80', 'Fachada e Vista Externa da Escola')">
+          <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=600&q=80" alt="Fachada Escolar">
+          <div class="gallery-overlay">
+            <i class="fa-solid fa-magnifying-glass-plus"></i>
+            <span>Fachada Principal</span>
+          </div>
+        </div>
+
+        <div class="gallery-item estrutura" onclick="openLightbox('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=80', 'Salas de Aula Climatizadas e Estruturadas')">
+          <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80" alt="Sala de Aula">
+          <div class="gallery-overlay">
+            <i class="fa-solid fa-magnifying-glass-plus"></i>
+            <span>Salas de Aula</span>
+          </div>
+        </div>
+
+        <div class="gallery-item estrutura" onclick="openLightbox('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1200&q=80', 'Biblioteca Escolar')">
+          <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=600&q=80" alt="Biblioteca">
+          <div class="gallery-overlay">
+            <i class="fa-solid fa-magnifying-glass-plus"></i>
+            <span>Biblioteca</span>
+          </div>
+        </div>
+
+        <div class="gallery-item eventos" onclick="openLightbox('https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1200&q=80', 'Festividades e Tradições Culturais na Colônia Marcelino')">
+          <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=600&q=80" alt="Eventos Culturais">
+          <div class="gallery-overlay">
+            <i class="fa-solid fa-magnifying-glass-plus"></i>
+            <span>Festas Culturais</span>
+          </div>
+        </div>
+
+        <div class="gallery-item eventos" onclick="openLightbox('https://images.unsplash.com/photo-1564069114553-7215e1ff1890?auto=format&fit=crop&w=1200&q=80', 'Feira de Ciências e Tecnologia')">
+          <img src="https://images.unsplash.com/photo-1564069114553-7215e1ff1890?auto=format&fit=crop&w=600&q=80" alt="Feira de Ciências">
+          <div class="gallery-overlay">
+            <i class="fa-solid fa-magnifying-glass-plus"></i>
+            <span>Feira Científica</span>
+          </div>
+        </div>
+
+        <div class="gallery-item estrutura" onclick="openLightbox('https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1200&q=80', 'Quadra Poliesportiva para Práticas Esportivas')">
+          <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=600&q=80" alt="Quadra Esportiva">
+          <div class="gallery-overlay">
+            <i class="fa-solid fa-magnifying-glass-plus"></i>
+            <span>Quadra de Esportes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notícias & Certificados -->
+  <section class="section-padding bg-alt">
+    <div class="container">
+      <div class="grid-2col">
+        <!-- Notícias -->
+        <div class="glass-panel news-box">
+          <h3><i class="fa-solid fa-bullhorn glow-icon"></i> Avisos & Comunicados</h3>
+          <div class="news-list">
+            <article class="news-item">
+              <span class="news-date"><i class="fa-regular fa-calendar"></i> Setembro de 2026</span>
+              <h4>Reunião de Pais e Responsáveis</h4>
+              <p>Convocamos os pais para alinhamento pedagógico do trimestre na sede do colégio.</p>
+            </article>
+            <article class="news-item">
+              <span class="news-date"><i class="fa-regular fa-calendar"></i> Calendário Escolar</span>
+              <h4>Projetos da Educação do Campo</h4>
+              <p>Apresentação dos trabalhos práticos integrados ao meio ambiente e agricultura sustentável.</p>
+            </article>
+          </div>
+        </div>
+
+        <!-- Certificados -->
+        <div class="glass-panel cert-box">
+          <h3><i class="fa-solid fa-file-signature glow-icon"></i> Históricos & Certificados</h3>
+          <p>Para emissão de Histórico Escolar, Declaração de Matrícula ou Certificado de Conclusão do Ensino Médio/Fundamental:</p>
+          <ul class="styled-list">
+            <li><i class="fa-solid fa-angle-right"></i> Dirija-se presencialmente à Secretaria.</li>
+            <li><i class="fa-solid fa-angle-right"></i> Apresente documento oficial com foto e RG do aluno.</li>
+            <li><i class="fa-solid fa-angle-right"></i> Horário de atendimento: Segunda a Sexta das 8h às 17h.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Depoimentos de Alunos e Professores -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="subheading"><i class="fa-solid fa-quote-left"></i> Vozes da Nossa Comunidade</span>
+        <h2 class="section-title">Depoimentos & Experiências</h2>
+        <div class="title-line"></div>
+      </div>
+
+      <div class="testimonial-slider">
+        <div class="testimonial-card glass-panel">
+          <i class="fa-solid fa-quote-right quote-bg"></i>
+          <p class="quote-text">
+            "Estudar no Colégio Irmã Ambrósia é valorizar nossas origens na Colônia Marcelino. O ensino é dedicado e nos prepara de verdade para vestibulares e para o mercado de trabalho."
+          </p>
+          <div class="quote-author">
+            <div class="author-avatar"><i class="fa-solid fa-user-graduate"></i></div>
+            <div>
+              <h5>Ex-Aluno do Ensino Médio</h5>
+              <span>Colônia Marcelino - SJP</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card glass-panel">
+          <i class="fa-solid fa-quote-right quote-bg"></i>
+          <p class="quote-text">
+            "Trabalhar nesta escola do campo nos conecta diretamente com as famílias. A união entre patrimônio cultural, disciplina e apoio pedagógico torna o processo de ensino gratificante."
+          </p>
+          <div class="quote-author">
+            <div class="author-avatar"><i class="fa-solid fa-chalkboard-user"></i></div>
+            <div>
+              <h5>Professor do Quadro Estadual</h5>
+              <span>Rede SEED-PR</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Localização & Contato Premium -->
+  <section class="section-padding bg-alt" id="contato">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="subheading"><i class="fa-solid fa-location-dot"></i> Venha nos Visitar</span>
+        <h2 class="section-title">Localização & Meios de Contato</h2>
+        <p class="section-desc">Estrutura pronta para bem atender a comunidade da Colônia Marcelino e arredores.</p>
+      </div>
+
+      <div class="contact-wrapper glass-panel">
+        <div class="contact-info">
+          <h3><i class="fa-solid fa-school"></i> Dados da Instituição</h3>
+          
+          <div class="info-item">
+            <i class="fa-solid fa-map-pin"></i>
+            <div>
+              <strong>Endereço Oficial:</strong>
+              <p>Estrada Vereador Domingos Benevenuto Moletta, nº 17173<br>Colônia Marcelino, São José dos Pinhais - PR, CEP 83024-899</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <i class="fa-solid fa-building-user"></i>
+            <div>
+              <strong>Jurisdição Regional:</strong>
+              <p>NRE Área Metropolitana Sul — Secretaria de Educação do PR</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <i class="fa-solid fa-barcode"></i>
+            <div>
+              <strong>Código INEP:</strong>
+              <p>41369270</p>
+            </div>
+          </div>
+
+          <div class="contact-actions-grid">
+            <a href="https://wa.me/554130351245" target="_blank" class="btn-contact-card btn-wa">
+              <i class="fa-brands fa-whatsapp"></i>
+              <span>WhatsApp Institucional<br><small>Clique para iniciar conversa</small></span>
+            </a>
+
+            <a href="mailto:sjpceebjasaojosedospinhais@seed.pr.gov.br" class="btn-contact-card btn-email">
+              <i class="fa-solid fa-envelope"></i>
+              <span>E-mail Oficial (Gmail)<br><small>Contato Administrativo</small></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-map">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3598.058102553026!2d-49.1916848!3d-25.6888636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dcf01db32adab7%3A0xb35a093edec3b5b5!2sEstr.%20Ver.%20Domingos%20Benevenuto%20Moletta%2C%2017173%20-%20S%C3%A3o%20Jos%C3%A9%20dos%20Pinhais%20-%20PR!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+            width="100%" 
+            height="100%" 
+            style="border:0; min-height: 380px; border-radius: 16px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé Oscar Level -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="brand-logo">
+          <div class="logo-emblem"><i class="fa-solid fa-graduation-cap"></i></div>
+          <span class="school-name">C.E.C. Irmã Ambrósia Sabatovich</span>
+        </div>
+        <p>Educação Pública com Orgulho Rural, Respeito à Cultura e Compromisso com o Futuro.</p>
+      </div>
+
+      <div class="footer-links">
+        <h5>Links Rápidos</h5>
+        <ul>
+          <li><a href="#historia">História</a></li>
+          <li><a href="#ensino">Ensino</a></li>
+          <li><a href="#infraestrutura">Estrutura</a></li>
+          <li><a href="#galeria">Galeria de Fotos</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-gov">
+        <h5>Órgãos Oficiais</h5>
+        <ul>
+          <li><a href="https://www.educacao.pr.gov.br/" target="_blank">SEED-PR</a></li>
+          <li><a href="https://www.consultaescolas.pr.gov.br" target="_blank">Consulta Escolas PR</a></li>
+          <li><a href="https://nreams.educacao.pr.gov.br/" target="_blank">NRE Área Metropolitana Sul</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container bottom-flex">
+        <p>© 2026 Colégio Estadual do Campo Irmã Ambrósia Sabatovich. Todos os direitos reservados.</p>
+        <p class="tag-public-badge"><i class="fa-solid fa-landmark"></i> Rede Pública do Estado do Paraná</p>
+      </div>
+    </div>
   </footer>
+
+  <!-- Lightbox Modal para Galeria -->
+  <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox()">
+    <span class="close-lightbox">&times;</span>
+    <img id="lightboxImg" src="" alt="Ampliação de Foto">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
 
   <script src="script.js"></script>
 </body>
