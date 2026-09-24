@@ -5,229 +5,322 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>C.E.I.A.S - Colégio Estadual Irmã Ambrósia Sampaio</title>
   <link rel="stylesheet" href="style.css">
+  <!-- Fonte Google para Tipografia Profissional -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- BARRA DE NAVEGAÇÃO E MENU HAMBÚRGUER -->
-  <header class="navbar">
-    <div class="logo-container">
-      <div class="logo-placeholder">C.E.I.A.S</div>
-      <span>Escola Pública Estadual</span>
+  <!-- BARRA DE ACESSIBILIDADE FIXA -->
+  <aside class="accessibility-bar" aria-label="Acessibilidade">
+    <div class="container accessibility-flex">
+      <span>♿ Acessibilidade e Inclusão</span>
+      <div class="accessibility-controls">
+        <button onclick="toggleHighContrast()" class="btn-access">Alto Contraste</button>
+        <button onclick="changeFontSize(1)" class="btn-access">A+</button>
+        <button onclick="changeFontSize(-1)" class="btn-access">A-</button>
+      </div>
     </div>
+  </aside>
 
-    <button class="hamburger" id="hamburger" aria-label="Abrir Menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+  <!-- CABEÇALHO PRINCIPAL -->
+  <header class="navbar-header">
+    <div class="container navbar-container">
+      <div class="brand">
+        <div class="logo-badge">C.E.I.A.S</div>
+        <div class="brand-text">
+          <span class="brand-title">Irmã Ambrósia Sampaio</span>
+          <span class="brand-subtitle">Escola Pública Estadual • Ensino Fundamental e Médio</span>
+        </div>
+      </div>
 
-    <nav class="nav-links" id="navLinks">
-      <button class="nav-btn active" onclick="openTab(event, 'inicio')">Início</button>
-      <button class="nav-btn" onclick="openTab(event, 'historia')">Nossa História</button>
-      <button class="nav-btn" onclick="openTab(event, 'ensino')">Ensino & Estatísticas</button>
-      <button class="nav-btn" onclick="openTab(event, 'infraestrutura')">Infraestrutura</button>
-      <button class="nav-btn" onclick="openTab(event, 'galeria')">Galeria & Eventos</button>
-      <button class="nav-btn" onclick="openTab(event, 'equipe')">Equipe & Depoimentos</button>
-      <button class="nav-btn" onclick="openTab(event, 'matricula')">Matrícula</button>
-      <button class="nav-btn" onclick="openTab(event, 'atendimento')">Atendimento IA</button>
-    </nav>
+      <button class="hamburger" id="hamburger" aria-label="Abrir Menu de Navegação">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+
+      <nav class="nav-menu" id="navMenu">
+        <button class="nav-link active" onclick="openTab(event, 'inicio')">Início</button>
+        <button class="nav-link" onclick="openTab(event, 'historia')">História</button>
+        <button class="nav-link" onclick="openTab(event, 'academico')">Acadêmico</button>
+        <button class="nav-link" onclick="openTab(event, 'infraestrutura')">Infraestrutura</button>
+        <button class="nav-link" onclick="openTab(event, 'galeria')">Galeria</button>
+        <button class="nav-link" onclick="openTab(event, 'equipe')">Comunidade</button>
+        <button class="nav-link btn-highlight" onclick="openTab(event, 'matricula')">Matrícula</button>
+        <button class="nav-link" onclick="openTab(event, 'atendimento')">Atendimento IA</button>
+      </nav>
+    </div>
   </header>
 
-  <main class="app-container">
+  <main class="main-content">
+    <div class="container">
 
-    <!-- ABA 1: INÍCIO E ACESSIBILIDADE -->
-    <section id="inicio" class="tab-content active">
-      <div class="accessibility-bar">
-        <span>♿ Recursos de Acessibilidade Ativos</span>
-        <button onclick="toggleHighContrast()">Alto Contraste</button>
-      </div>
+      <!-- ABA 1: INÍCIO E NOTÍCIAS -->
+      <section id="inicio" class="tab-panel active">
+        <div class="hero-card">
+          <div class="hero-badge">Tradição & Inovação</div>
+          <h1>Bem-vindo ao C.E.I.A.S</h1>
+          <p>Oferecendo ensino público de excelência para turmas do Ensino Fundamental II (6º ao 9º ano) e Ensino Médio (1º ao 3º ano).</p>
+        </div>
 
-      <div class="hero">
-        <h1>Bem-vindo ao C.E.I.A.S</h1>
-        <p>Ensino Fundamental (6º ao 9º) e Ensino Médio (1º ao 3º)</p>
-      </div>
+        <div class="section-title">
+          <h2>Comunicados & Eventos Recentes</h2>
+          <p>Fique por dentro das últimas novidades da nossa comunidade escolar</p>
+        </div>
 
-      <div class="news-section">
-        <h2>Comunicados e Notícias de Eventos</h2>
-        <div class="cards-grid">
+        <div class="grid-cards">
           <article class="card">
-            <h3>Feira de Ciências 2026</h3>
-            <p>Projetos desenvolvidos pelos alunos do Ensino Médio sobre sustentabilidade local.</p>
+            <div class="card-tag">Evento Científico</div>
+            <h3>Feira de Ciências & Tecnologia 2026</h3>
+            <p>Apresentação dos projetos desenvolvidos pelos estudantes com foco em sustentabilidade e inovação comunitária.</p>
           </article>
           <article class="card">
-            <h3>Reunião de Pais e Mestres</h3>
-            <p>Confira a pauta e o cronograma de horários para o encerramento do bimestre.</p>
+            <div class="card-tag">Aviso Institucional</div>
+            <h3>Reunião Geral de Pais e Mestres</h3>
+            <p>Acompanhamento do rendimento escolar e entrega dos boletins do bimestre corrente.</p>
           </article>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ABA 2: HISTÓRIA E IRMÃ AMBRÓSIA -->
-    <section id="historia" class="tab-content">
-      <h2>Nossa História e Origem Católica</h2>
-      <div class="history-grid">
-        <div class="photo-box">
-          <div class="img-placeholder">[Foto de Irmã Ambrósia]</div>
-          <p><strong>Irmã Ambrósia Sampaio</strong></p>
+      <!-- ABA 2: HISTÓRIA E ORIGEM -->
+      <section id="historia" class="tab-panel">
+        <div class="section-title">
+          <h2>Nossa História e Origem Católica</h2>
+          <p>Uma trajetória pautada pela dedicação ao ensino e valores comunitários</p>
         </div>
-        <div>
-          <p>Fundado a partir de valores comunitários e de acolhimento de origem católica, o colégio iniciou suas atividades promovendo o ensino inclusivo para a comunidade. Ao longo das décadas, a instituição expandiu suas estruturas, mantendo o legado de dedicação à formação integral dos estudantes.</p>
-          <div class="certificates">
-            <h3>Certificados e Reconhecimentos</h3>
-            <ul>
-              <li>Selo Escola Acessível e Inclusiva</li>
-              <li>Certificado de Excelência em Projetos Sociais</li>
-            </ul>
+
+        <div class="history-container">
+          <div class="profile-card">
+            <div class="avatar-box">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <span>Foto Oficial</span>
+            </div>
+            <h3>Irmã Ambrósia Sampaio</h3>
+            <p class="role">Patrona da Instituição</p>
+          </div>
+
+          <div class="history-text">
+            <p>O Colégio Estadual Irmã Ambrósia Sampaio nasceu sob o pilar da vocação educacional e do compromisso comunitário de matriz católica. Fundado para atender às necessidades da comunidade local, o colégio iniciou sua jornada promovendo inclusão e formação humana integral.</p>
+            <p>Com o passar dos anos, tornou-se uma referência da rede pública estadual, modernizando sua estrutura sem perder o acolhimento pedagógico original.</p>
+            
+            <div class="certificates-box">
+              <h4>Certificações e Reconhecimentos</h4>
+              <ul class="styled-list">
+                <li>Selo Escola Pública Acessível e Inclusiva</li>
+                <li>Certificado de Excelência em Projetos Educacionais Estaduais</li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ABA 3: ENSINO, DISCIPLINAS E ESTATÍSTICAS -->
-    <section id="ensino" class="tab-content">
-      <h2>Grade Curricular e Rendimento Escolar</h2>
-      
-      <div class="cards-grid">
-        <div class="card">
-          <h3>Ensino Fundamental II (6º ao 9º Ano)</h3>
-          <p>Língua Portuguesa, Matemática, Ciências, História, Geografia, Arte, Educação Física, Ensino Religioso e Inglês.</p>
+      <!-- ABA 3: ACADÊMICO & ESTATÍSTICAS -->
+      <section id="academico" class="tab-panel">
+        <div class="section-title">
+          <h2>Disciplinas & Rendimento Escolar</h2>
+          <p>Estrutura curricular completa e indicadores pedagógicos por ciclo</p>
         </div>
-        <div class="card">
-          <h3>Ensino Médio (1º ao 3º Ano)</h3>
-          <p>Linguagens, Matemática Aplicada, Ciências da Natureza, Ciências Humanas, Projeto de Vida e Itinerários Formativos.</p>
-        </div>
-      </div>
 
-      <div class="stats-container">
-        <h3>Detalhamento de Rendimento Escolar (Por Ano)</h3>
-        
-        <div class="chart-block">
-          <h4>Ensino Fundamental (6º ao 9º Ano)</h4>
-          <div class="bar-group">
-            <label>Aprovação (88%)</label>
-            <div class="bar-bg"><div class="bar-fill" style="width: 88%;"></div></div>
-            <label>Reprovação (8%)</label>
-            <div class="bar-bg"><div class="bar-fill warning" style="width: 8%;"></div></div>
-            <label>Abandono (4%)</label>
-            <div class="bar-bg"><div class="bar-fill danger" style="width: 4%;"></div></div>
+        <div class="grid-cards">
+          <div class="card">
+            <h3>Ensino Fundamental II (6º ao 9º Ano)</h3>
+            <p><strong>Disciplinas:</strong> Língua Portuguesa, Matemática, Ciências, História, Geografia, Arte, Educação Física, Ensino Religioso e Língua Inglesa.</p>
+          </div>
+          <div class="card">
+            <h3>Ensino Médio (1º ao 3º Ano)</h3>
+            <p><strong>Disciplinas:</strong> Linguagens e suas Tecnologias, Matemática Aplicada, Ciências da Natureza, Ciências Humanas e Sociais, Projeto de Vida e Itinerários Formativos.</p>
           </div>
         </div>
 
-        <div class="chart-block">
-          <h4>Ensino Médio (1º ao 3º Ano)</h4>
-          <div class="bar-group">
-            <label>Aprovação (85%)</label>
-            <div class="bar-bg"><div class="bar-fill" style="width: 85%;"></div></div>
-            <label>Reprovação (10%)</label>
-            <div class="bar-bg"><div class="bar-fill warning" style="width: 10%;"></div></div>
-            <label>Abandono (5%)</label>
-            <div class="bar-bg"><div class="bar-fill danger" style="width: 5%;"></div></div>
+        <div class="stats-card">
+          <h3>Indicadores de Desempenho por Ano Escolar</h3>
+
+          <div class="chart-group">
+            <h4>Ensino Fundamental (6º ao 9º Ano)</h4>
+            <div class="stat-item">
+              <div class="stat-label"><span>Aprovação</span> <strong>88%</strong></div>
+              <div class="progress-bar"><div class="fill success" style="width: 88%;"></div></div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label"><span>Reprovação</span> <strong>8%</strong></div>
+              <div class="progress-bar"><div class="fill warning" style="width: 8%;"></div></div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label"><span>Abandono</span> <strong>4%</strong></div>
+              <div class="progress-bar"><div class="fill danger" style="width: 4%;"></div></div>
+            </div>
+          </div>
+
+          <div class="chart-group">
+            <h4>Ensino Médio (1º ao 3º Ano)</h4>
+            <div class="stat-item">
+              <div class="stat-label"><span>Aprovação</span> <strong>85%</strong></div>
+              <div class="progress-bar"><div class="fill success" style="width: 85%;"></div></div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label"><span>Reprovação</span> <strong>10%</strong></div>
+              <div class="progress-bar"><div class="fill warning" style="width: 10%;"></div></div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label"><span>Abandono</span> <strong>5%</strong></div>
+              <div class="progress-bar"><div class="fill danger" style="width: 5%;"></div></div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ABA 4: INFRAESTRUTURA -->
-    <section id="infraestrutura" class="tab-content">
-      <h2>Estrutura Completa do C.E.I.A.S</h2>
-      <ul class="infra-list">
-        <li>Escola e Dependências com Acessibilidade</li>
-        <li>Sanitário Acessível e Adaptado</li>
-        <li>Sanitários dentro do prédio escolar</li>
-        <li>Alimentação escolar fornecida com acompanhamento nutricional</li>
-        <li>Água filtrada disponível em todos os blocos</li>
-        <li>Biblioteca com acervo diversificado</li>
-        <li>Cozinha comunitária aparelhada</li>
-        <li>Laboratório de Informática</li>
-        <li>Laboratório de Ciências</li>
-        <li>Quadra de Esportes coberta</li>
-        <li>Sala da Diretoria e Pedagogia</li>
-      </ul>
-    </section>
-
-    <!-- ABA 5: GALERIA E FOTOS DE EVENTOS -->
-    <section id="galeria" class="tab-content">
-      <h2>Banco de Fotos Internas, Externas e Eventos</h2>
-      <div class="gallery-grid">
-        <div class="img-placeholder">Área Externa & Fachada</div>
-        <div class="img-placeholder">Laboratório de Informática</div>
-        <div class="img-placeholder">Biblioteca</div>
-        <div class="img-placeholder">Quadra Esportiva</div>
-        <div class="img-placeholder">Desfile Cívico</div>
-        <div class="img-placeholder">Mostra Cultural</div>
-      </div>
-    </section>
-
-    <!-- ABA 6: EQUIPE E DEPOIMENTOS -->
-    <section id="equipe" class="tab-content">
-      <h2>Corpo Docente e Colaboradores</h2>
-      <p>Equipe formada por Diretora, Pedagogas, Secretárias e Professores especialistas.</p>
-
-      <div class="testimonials">
-        <h3>Depoimentos</h3>
-        <div class="cards-grid">
-          <blockquote class="card">
-            <p>"Ver o crescimento individual de cada aluno no C.E.I.A.S é a maior recompensa do nosso trabalho diário."</p>
-            <cite>— Profa. Maria, Corpo Docente</cite>
-          </blockquote>
-          <blockquote class="card">
-            <p>"O colégio me preparou tanto para o vestibular quanto para a vida cidadã. Tenho muito orgulho de ser ex-aluno."</p>
-            <cite>— Carlos Eduardo, Ex-aluno</cite>
-          </blockquote>
+      <!-- ABA 4: INFRAESTRUTURA -->
+      <section id="infraestrutura" class="tab-panel">
+        <div class="section-title">
+          <h2>Infraestrutura Completa</h2>
+          <p>Ambientes projetados para garantir segurança, inclusão e qualidade de ensino</p>
         </div>
-      </div>
-    </section>
 
-    <!-- ABA 7: MATRÍCULA -->
-    <section id="matricula" class="tab-content">
-      <h2>Aba Especial para Matrícula</h2>
-      <form onsubmit="sendMatriculaToWhatsApp(event)">
-        <div class="form-group">
-          <label>Nome do Aluno</label>
-          <input type="text" id="matNome" required>
+        <div class="infra-grid">
+          <div class="infra-item">♿ Escolas com Acessibilidade</div>
+          <div class="infra-item">🚪 Dependências com Acessibilidade</div>
+          <div class="infra-item">♿ Sanitários Adaptados</div>
+          <div class="infra-item">🚻 Sanitários no Prédio Escolar</div>
+          <div class="infra-item">🥗 Alimentação Escolar Fornecida</div>
+          <div class="infra-item">💧 Água Filtrada em Todos os Blocos</div>
+          <div class="infra-item">📚 Biblioteca com Acervo Completo</div>
+          <div class="infra-item">🍳 Cozinha e Refeitório Estruturados</div>
+          <div class="infra-item">💻 Laboratório de Informática</div>
+          <div class="infra-item">🔬 Laboratório de Ciências</div>
+          <div class="infra-item">⚽ Quadra Poliesportiva Coberta</div>
+          <div class="infra-item">🏢 Sala da Diretoria e Pedagogia</div>
         </div>
-        <div class="form-group">
-          <label>Série Desejada</label>
-          <select id="matSerie" required>
-            <option value="6º Ano - Fundamental">6º Ano - Fundamental</option>
-            <option value="7º Ano - Fundamental">7º Ano - Fundamental</option>
-            <option value="8º Ano - Fundamental">8º Ano - Fundamental</option>
-            <option value="9º Ano - Fundamental">9º Ano - Fundamental</option>
-            <option value="1º Ano - Médio">1º Ano - Médio</option>
-            <option value="2º Ano - Médio">2º Ano - Médio</option>
-            <option value="3º Ano - Médio">3º Ano - Médio</option>
-          </select>
+      </section>
+
+      <!-- ABA 5: GALERIA DE FOTOS -->
+      <section id="galeria" class="tab-panel">
+        <div class="section-title">
+          <h2>Galeria de Fotos & Eventos</h2>
+          <p>Registros do nosso espaço físico e das atividades pedagógicas</p>
         </div>
-        <div class="form-group">
-          <label>Nome do Responsável</label>
-          <input type="text" id="matResp" required>
+
+        <div class="gallery-grid">
+          <div class="gallery-card"><div class="img-box">Fachada Externa</div><span>Fachada & Entrada Principal</span></div>
+          <div class="gallery-card"><div class="img-box">Informática</div><span>Laboratório de Informática</span></div>
+          <div class="gallery-card"><div class="img-box">Biblioteca</div><span>Biblioteca e Espaço de Leitura</span></div>
+          <div class="gallery-card"><div class="img-box">Quadra</div><span>Quadra de Esportes</span></div>
+          <div class="gallery-card"><div class="img-box">Desfile</div><span>Desfile Cívico Institucional</span></div>
+          <div class="gallery-card"><div class="img-box">Mostra Cultural</div><span>Feira das Nações & Culturas</span></div>
         </div>
-        <button type="submit" class="submit-btn">Enviar Pré-Matrícula via WhatsApp</button>
-      </form>
-    </section>
+      </section>
 
-    <!-- ABA 8: ATENDIMENTO IA E CONTATOS -->
-    <section id="atendimento" class="tab-content">
-      <h2>Atendimento Virtual & Contato Directo</h2>
-      
-      <div class="contact-info">
-        <p><strong>WhatsApp da Escola:</strong> (00) 99999-9999</p>
-        <p><strong>E-mail (Gmail):</strong> ceias.escola@gmail.com</p>
-        <p><strong>Localização:</strong> Rua da Educação, 100 - Centro</p>
-      </div>
+      <!-- ABA 6: EQUIPE & DEPOIMENTOS -->
+      <section id="equipe" class="tab-panel">
+        <div class="section-title">
+          <h2>Equipe Escolar & Depoimentos</h2>
+          <p>Profissionais dedicados e relatos da nossa comunidade</p>
+        </div>
 
-      <div class="chat-box" id="chatBox">
-        <div class="message bot">Olá! Sou o assistente virtual do C.E.I.A.S. Como posso te ajudar hoje?</div>
-      </div>
+        <div class="team-banner">
+          <h3>Corpo Docente e Administrativo</h3>
+          <p>Contamos com Diretora Geral, Pedagogas, Equipe Secretarial e Professores Licenciados Especialistas.</p>
+        </div>
 
-      <div class="chat-input-area">
-        <input type="text" id="userInput" placeholder="Digite sua dúvida...">
-        <button onclick="sendMessage()">Enviar</button>
-      </div>
-      <button class="whatsapp-direct-btn" onclick="redirectChatToWhatsApp()">Encaminhar Conversa para o Celular da Escola</button>
-    </section>
+        <div class="grid-cards">
+          <div class="card testimonial-card">
+            <p>"Nosso compromisso é oferecer um ambiente em que cada estudante se sinta estimulado a alcançar seu potencial máximo."</p>
+            <cite>— Profª. Maria Silva, Equipe Pedagógica</cite>
+          </div>
+          <div class="card testimonial-card">
+            <p>"O C.E.I.A.S me deu a base necessária para ingressar na universidade. Sou extremamente grato aos professores."</p>
+            <cite>— Lucas Rocha, Ex-aluno</cite>
+          </div>
+        </div>
+      </section>
 
+      <!-- ABA 7: MATRÍCULA -->
+      <section id="matricula" class="tab-panel">
+        <div class="form-container">
+          <div class="section-title">
+            <h2>Pré-Matrícula Online</h2>
+            <p>Preencha os dados abaixo para iniciar o processo de solicitação</p>
+          </div>
+
+          <form onsubmit="sendMatriculaToWhatsApp(event)" class="styled-form">
+            <div class="form-group">
+              <label for="matNome">Nome Completo do Aluno</label>
+              <input type="text" id="matNome" placeholder="Digite o nome do estudante" required>
+            </div>
+            <div class="form-group">
+              <label for="matSerie">Série / Ano Desejado</label>
+              <select id="matSerie" required>
+                <option value="">Selecione...</option>
+                <option value="6º Ano - Fundamental">6º Ano - Ensino Fundamental</option>
+                <option value="7º Ano - Fundamental">7º Ano - Ensino Fundamental</option>
+                <option value="8º Ano - Fundamental">8º Ano - Ensino Fundamental</option>
+                <option value="9º Ano - Fundamental">9º Ano - Ensino Fundamental</option>
+                <option value="1º Ano - Médio">1º Ano - Ensino Médio</option>
+                <option value="2º Ano - Médio">2º Ano - Ensino Médio</option>
+                <option value="3º Ano - Médio">3º Ano - Ensino Médio</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="matResp">Nome do Responsável Legal</label>
+              <input type="text" id="matResp" placeholder="Nome do pai, mãe ou tutor" required>
+            </div>
+            <button type="submit" class="btn-primary">Enviar Pré-Matrícula via WhatsApp</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- ABA 8: ATENDIMENTO IA & CONTATOS -->
+      <section id="atendimento" class="tab-panel">
+        <div class="section-title">
+          <h2>Atendimento Virtual & Contatos</h2>
+          <p>Tire dúvidas com nossa assistente ou fale direto com a secretaria</p>
+        </div>
+
+        <div class="contact-cards">
+          <div class="contact-item">
+            <strong>📍 Localização:</strong>
+            <span>Rua da Educação, Nº 100 - Centro</span>
+          </div>
+          <div class="contact-item">
+            <strong>📱 WhatsApp:</strong>
+            <span>(00) 99999-9999</span>
+          </div>
+          <div class="contact-item">
+            <strong>✉️ E-mail / Gmail:</strong>
+            <span>ceias.escola@gmail.com</span>
+          </div>
+        </div>
+
+        <div class="chat-wrapper">
+          <div class="chat-header">
+            <span>Assistente Virtual C.E.I.A.S</span>
+            <span class="status-online">● Online</span>
+          </div>
+          <div class="chat-box" id="chatBox">
+            <div class="message bot">Olá! Sou a assistente virtual do C.E.I.A.S. Como posso ajudar você hoje?</div>
+          </div>
+          <div class="chat-input-row">
+            <input type="text" id="userInput" placeholder="Digite sua dúvida...">
+            <button onclick="sendMessage()" class="btn-primary">Enviar</button>
+          </div>
+          <button class="btn-whatsapp" onclick="redirectChatToWhatsApp()">
+            Encaminhar Conversa para o WhatsApp da Escola
+          </button>
+        </div>
+      </section>
+
+    </div>
   </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 C.E.I.A.S - Colégio Estadual Irmã Ambrósia Sampaio. Todos os direitos reservados.</p>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>
