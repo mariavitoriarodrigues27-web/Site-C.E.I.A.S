@@ -3,548 +3,677 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>C.E.I.A.S - Colégio Estadual do Campo Irmã Ambrósia Sabatovich</title>
-  
-  <!-- CSS Principal -->
+  <title>Colégio Irmã Ambrósia - Tradição e Excelência em Educação</title>
   <link rel="stylesheet" href="style.css">
-  
-  <!-- Fonts & Icones -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- Chart.js para o Gráfico de Desempenho -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
-  <!-- BARRA DE ACESSIBILIDADE DE TOPO -->
-  <div class="accessibility-bar" id="accessibility-bar">
-    <div class="accessibility-container">
-      <span class="access-label"><i class="fa-solid fa-universal-access"></i> Acessibilidade:</span>
-      <div class="access-buttons">
-        <button id="btn-contrast" title="Alternar Alto Contraste"><i class="fa-solid fa-circle-half-stroke"></i> Contraste</button>
-        <button id="btn-increase-font" title="Aumentar Fonte">A+</button>
-        <button id="btn-decrease-font" title="Diminuir Fonte">A-</button>
-        <button id="btn-tts" title="Ouvir página"><i class="fa-solid fa-volume-high"></i> <span id="tts-text">Ouvir Página</span></button>
+  <!-- BARRA DEINFORMAÇÕES SUPERIOR -->
+  <div class="topbar">
+    <div class="topbar-container">
+      <div class="topbar-info">
+        <span>📍 Rua das Flores, 123 - Centro</span>
+        <span>📞 (11) 3456-7890</span>
+        <span>✉️ contato@colegioirmaambrosia.edu.br</span>
+      </div>
+      <div class="topbar-social">
+        <a href="#" aria-label="Facebook">Facebook</a>
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="YouTube">YouTube</a>
       </div>
     </div>
   </div>
 
-  <!-- CABEÇALHO / NAVBAR (LOVABLE STYLE) -->
-  <header class="navbar">
+  <!-- NAVEGAÇÃO POR ABAS -->
+  <nav class="tabs-nav" aria-label="Navegação Principal">
     <div class="nav-container">
-      <a href="#inicio" class="logo-group">
-        <div class="logo-badge">
-          <i class="fa-solid fa-graduation-cap"></i>
-        </div>
-        <div class="logo-text">
-          <span class="brand-title">C.E.I.A.S</span>
-          <span class="public-tag"><i class="fa-solid fa-building-columns"></i> Escola Pública Estadual</span>
-        </div>
-      </a>
-
-      <!-- Menu Hamburguer para Mobile -->
-      <button class="hamburger" id="hamburger-btn" aria-label="Abrir Menu">
-        <i class="fa-solid fa-bars"></i>
+      <button class="tab-button active" onclick="openTab(event, 'historia')">
+        <span class="icon">🏛️</span>
+        Nossa História
       </button>
-
-      <!-- links de navegação -->
-      <nav class="nav-menu" id="nav-menu">
-        <a href="#inicio" class="nav-item active"><i class="fa-solid fa-house"></i> Início</a>
-        <a href="#historia" class="nav-item"><i class="fa-solid fa-book-bookmark"></i> História</a>
-        <a href="#ensino" class="nav-item"><i class="fa-solid fa-chalkboard-user"></i> Ensino</a>
-        <a href="#infraestrutura" class="nav-item"><i class="fa-solid fa-school-flag"></i> Infraestrutura</a>
-        <a href="#galeria" class="nav-item"><i class="fa-solid fa-images"></i> Galeria</a>
-        <a href="#equipe" class="nav-item"><i class="fa-solid fa-users-gear"></i> Equipe</a>
-        <a href="#indicadores" class="nav-item"><i class="fa-solid fa-chart-line"></i> Rendimento</a>
-        <a href="#matricula" class="nav-item nav-btn-highlight"><i class="fa-solid fa-robot"></i> Matrícula IA</a>
-        <a href="#contato" class="nav-item"><i class="fa-solid fa-phone"></i> Contato</a>
-      </nav>
+      <button class="tab-button" onclick="openTab(event, 'informacoes')">
+        <span class="icon">📚</span>
+        Informações Escolares
+      </button>
+      <button class="tab-button" onclick="openTab(event, 'proposta')">
+        <span class="icon">🎯</span>
+        Proposta Pedagógica
+      </button>
+      <button class="tab-button" onclick="openTab(event, 'galeria')">
+        <span class="icon">🖼️</span>
+        Galeria de Fotos
+      </button>
+      <button class="tab-button" onclick="openTab(event, 'faq')">
+        <span class="icon">❓</span>
+        Dúvidas Frequentes
+      </button>
+      <button class="tab-button" onclick="openTab(event, 'contato')">
+        <span class="icon">✉️</span>
+        Contato
+      </button>
     </div>
-  </header>
+  </nav>
 
-  <!-- HERO SECTION -->
-  <section id="inicio" class="hero-section">
-    <div class="hero-bg-shapes">
-      <div class="shape shape-1"></div>
-      <div class="shape shape-2"></div>
-    </div>
-    <div class="container hero-content">
-      <div class="badge-pill">
-        <i class="fa-solid fa-seedling"></i> Colégio Estadual do Campo Irmã Ambrósia Sabatovich
-      </div>
-      <h1 class="hero-title">Educação do Campo Gratuita, Humana e Transformadora</h1>
-      <p class="hero-subtitle">
-        Oferecendo Ensino Fundamental II (6º ao 9º) e Ensino Médio (1º ao 3º) com excelência acadêmica, inovação tecnológica e valorização da nossa comunidade rural.
-      </p>
-      <div class="hero-cta-group">
-        <a href="#matricula" class="btn btn-primary"><i class="fa-solid fa-headset"></i> Assistente de Matrícula IA</a>
-        <a href="#historia" class="btn btn-secondary"><i class="fa-solid fa-circle-info"></i> Conheça Nossa História</a>
-      </div>
+  <!-- CONTAINER PRINCIPAL DO CONTEÚDO -->
+  <main class="main-container">
 
-      <!-- Métricas Rápidas -->
-      <div class="stats-grid">
-        <div class="stat-card">
-          <i class="fa-solid fa-user-graduate"></i>
-          <h3>100%</h3>
-          <p>Ensino Gratuito & Público</p>
-        </div>
-        <div class="stat-card">
-          <i class="fa-solid fa-book-open"></i>
-          <h3>6º ao 3º</h3>
-          <p>Fundamental II e Médio</p>
-        </div>
-        <div class="stat-card">
-          <i class="fa-solid fa-hand-holding-heart"></i>
-          <h3>Origem</h3>
-          <p>Tradição & Valores Comunitários</p>
-        </div>
-        <div class="stat-card">
-          <i class="fa-solid fa-chart-pie"></i>
-          <h3>Altas Taxas</h3>
-          <p>De Aprovação e Sucesso</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- ========================================== -->
+    <!-- ABA 1: NOSSA HISTÓRIA (PÁGINA PRINCIPAL) -->
+    <!-- ========================================== -->
+    <section id="historia" class="tab-content active">
 
-  <!-- SEÇÃO NOTÍCIAS E COMUNICADOS -->
-  <section class="section-padding news-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-badge">Mantenha-se informado</span>
-        <h2 class="section-title">Notícias e Comunicados Recentes</h2>
-      </div>
-      <div class="cards-grid">
-        <article class="news-card">
-          <div class="news-tag"><i class="fa-solid fa-calendar"></i> Evento</div>
-          <h3>Feira de Saberes e Agroecologia 2026</h3>
-          <p>Apresentação de projetos sustentáveis desenvolvidos pelos alunos do Ensino Médio e Fundamental II.</p>
-          <span class="news-date">15 de Outubro de 2026</span>
-        </article>
-        <article class="news-card">
-          <div class="news-tag info"><i class="fa-solid fa-bullhorn"></i> Comunicado</div>
-          <h3>Reunião de Pais e Mestres do 3º Trimestre</h3>
-          <p>Convocação geral para alinhamento pedagógico e entrega de boletins informativos.</p>
-          <span class="news-date">28 de Setembro de 2026</span>
-        </article>
-        <article class="news-card">
-          <div class="news-tag alert"><i class="fa-solid fa-id-card"></i> Matrículas</div>
-          <h3>Período de Rematrícula e Novas Vagas</h3>
-          <p>Utilize nossa assistente de IA no site para consultar a lista de documentos e agendar seu atendimento.</p>
-          <span class="news-date">Aberto Continuamente</span>
-        </article>
-      </div>
-    </div>
-  </section>
+      <!-- CABEÇALHO DA ABA PRINCIPAL / LOGO DO COLÉGIO -->
+      <header class="header-logo-secao">
+        <div class="logo-box">
+          <!-- Substitua o atributo src pelo caminho da imagem da logo quando tiver -->
+          <img 
+            src="logo-colegio.png" 
+            alt="Logo Oficial do Colégio Irmã Ambrósia" 
+            class="logo-colegio-img"
+          >
+        </div>
+        <h1 class="titulo-principal">Colégio Irmã Ambrósia</h1>
+        <p class="subtitulo-principal">Educando com Amor, Ética e Excelência para a Vida</p>
+      </header>
 
-  <!-- SEÇÃO HISTÓRIA & PATRONA -->
-  <section id="historia" class="section-padding bg-alt">
-    <div class="container">
-      <div class="history-wrapper">
-        <div class="patron-profile-card">
-          <div class="patron-img-box">
-            <!-- Placeholder com foto estilizada -->
-            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=400" alt="Irmã Ambrósia Sabatovich">
-            <span class="patron-badge"><i class="fa-solid fa-cross"></i> Origem Católica</span>
-          </div>
-          <h3>Irmã Ambrósia Sabatovich</h3>
-          <p class="patron-role">Patrona e Inspetora de Fé e Educação</p>
+      <!-- CARD 1: HISTÓRIA DA FUNDAÇÃO E EVOLUÇÃO -->
+      <article class="card-historia">
+        <div class="badge-categoria">
+          <span>Origens &amp; Linha do Tempo</span>
         </div>
+        
+        <h2>A Fundação e Evolução da Nossa Escola</h2>
 
-        <div class="history-content">
-          <span class="section-badge">Nossa Identidade</span>
-          <h2 class="section-title text-left">Uma História de Fé, Trabalho e Amor pela Educação do Campo</h2>
-          <p class="paragraph">
-            O <strong>Colégio Estadual do Campo Irmã Ambrósia Sabatovich (C.E.I.A.S)</strong> teve sua gênese no trabalho comunitário e religioso de origem católica voltado para o acolhimento das famílias rurais. A Irmã Ambrósia Sabatovich dedicou sua vida a levar instrução, acolhimento e valores éticos às crianças do campo.
-          </p>
-          <p class="paragraph">
-            Com o passar das décadas, a instituição expandiu-se e consolidou-se como uma **Escola Pública Estadual**, garantindo acesso livre, público e de alta qualidade do 6º ao 9º ano do Ensino Fundamental II e todo o Ensino Médio. Preservamos nossas raízes históricas unidas à inovação pedagógica contemporânea.
-          </p>
-          <div class="history-highlights">
-            <div class="hl-item"><i class="fa-solid fa-check-circle"></i> Origem Comunitária Católica</div>
-            <div class="hl-item"><i class="fa-solid fa-check-circle"></i> Gestão Pública e Gratuita</div>
-            <div class="hl-item"><i class="fa-solid fa-check-circle"></i> Valorização da Cultura Rural</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SEÇÃO ENSINO E DISCIPLINAS (ABAS) -->
-  <section id="ensino" class="section-padding">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-badge">Oferta Pedagógica</span>
-        <h2 class="section-title">Etapas de Ensino e Grade Curricular</h2>
-        <p class="section-subtitle">Abaixo você pode alternar entre os níveis de ensino ofertados no C.E.I.A.S.</p>
-      </div>
-
-      <div class="tabs-control">
-        <button class="tab-btn active" onclick="switchTab(event, 'tab-fundamental')">
-          <i class="fa-solid fa-child"></i> Ensino Fundamental II (6º ao 9º)
-        </button>
-        <button class="tab-btn" onclick="switchTab(event, 'tab-medio')">
-          <i class="fa-solid fa-graduation-cap"></i> Ensino Médio (1º ao 3º)
-        </button>
-      </div>
-
-      <!-- Aba Fundamental -->
-      <div id="tab-fundamental" class="tab-pane active">
-        <div class="grade-box">
-          <h3>Grade Curricular - Ensino Fundamental II</h3>
-          <p>Foco na consolidação do raciocínio lógico, linguagem, ciências e cidadania com metodologias ativas.</p>
-          <div class="subject-tags">
-            <span class="subject-chip"><i class="fa-solid fa-book"></i> Língua Portuguesa</span>
-            <span class="subject-chip"><i class="fa-solid fa-calculator"></i> Matemática</span>
-            <span class="subject-chip"><i class="fa-solid fa-flask"></i> Ciências Naturais</span>
-            <span class="subject-chip"><i class="fa-solid fa-landmark"></i> História</span>
-            <span class="subject-chip"><i class="fa-solid fa-earth-americas"></i> Geografia</span>
-            <span class="subject-chip"><i class="fa-solid fa-language"></i> Língua Inglesa</span>
-            <span class="subject-chip"><i class="fa-solid fa-palette"></i> Arte</span>
-            <span class="subject-chip"><i class="fa-solid fa-volleyball"></i> Educação Física</span>
-            <span class="subject-chip"><i class="fa-solid fa-hands-holding-child"></i> Ensino Religioso / Ética</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Aba Médio -->
-      <div id="tab-medio" class="tab-pane">
-        <div class="grade-box">
-          <h3>Grade Curricular - Ensino Médio</h3>
-          <p>Preparação integral para vestibulares, ENEM, mercado de trabalho e projetos voltados ao desenvolvimento do campo.</p>
-          <div class="subject-tags">
-            <span class="subject-chip"><i class="fa-solid fa-book-open"></i> Língua Portuguesa & Literatura</span>
-            <span class="subject-chip"><i class="fa-solid fa-square-root-variable"></i> Matemática e suas Tecnologias</span>
-            <span class="subject-chip"><i class="fa-solid fa-atom"></i> Física</span>
-            <span class="subject-chip"><i class="fa-solid fa-vial"></i> Química</span>
-            <span class="subject-chip"><i class="fa-solid fa-dna"></i> Biologia</span>
-            <span class="subject-chip"><i class="fa-solid fa-brain"></i> Filosofia e Sociologia</span>
-            <span class="subject-chip"><i class="fa-solid fa-globe"></i> História e Geografia</span>
-            <span class="subject-chip"><i class="fa-solid fa-language"></i> Língua Inglesa</span>
-            <span class="subject-chip"><i class="fa-solid fa-tractor"></i> Práticas Agrícolas & Itinerários Formativos</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SEÇÃO INFRAESTRUTURA COMPLETA E ACESSÍVEL -->
-  <section id="infraestrutura" class="section-padding bg-alt">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-badge">Estrutura Física</span>
-        <h2 class="section-title">Infraestrutura Escolar Acessível</h2>
-        <p class="section-subtitle">Espaços adaptados, seguros e equipados para o aprendizado e bem-estar dos alunos.</p>
-      </div>
-
-      <div class="infra-grid">
-        <div class="infra-card">
-          <div class="infra-icon"><i class="fa-solid fa-wheelchair"></i></div>
-          <h4>Escola com Acessibilidade</h4>
-          <p>Rampas de acesso e nivelamento para livre circulação de PWDs.</p>
-        </div>
-        <div class="infra-card">
-          <div class="infra-icon"><i class="fa-solid fa-person-walking-with-cane"></i></div>
-          <h4>Dependências Acessíveis</h4>
-          <p>Corredores amplos, sinalização e facilidade de locomoção.</p>
-        </div>
-        <div class="infra-card">
-          <div class="infra-icon"><i class="fa-solid fa-restroom"></i></div>
-          <h4>Sanitário com Acessibilidade</h4>
-          <p>Banheiros totalmente adaptados com barras de apoio.</p>
-        </div>
-        <div class="infra-card">
-          <div class="infra-icon"><i class="fa-solid fa-utensils"></i></div>
-          <h4>Alimentação Fornecida</h4>
-          <p>Merenda escolar gratuita, nutritiva e balanceada diariamente.</p>
-        </div>
-        <div class="infra-card">
-          <div class="infra-icon"><i class="fa-solid fa-faucet-drip"></i></div>
-          <h4>Água Filtrada</h4>
-          <p>Bebedouros modernos com purificação contínua de água.</p>
-        </div>
-        <div class="infra-card">
-          <div class="infra-icon"><i class="fa-solid fa-door-closed"></i></div>
-          <h4>Sanitário Interno</h4>
-          <p>Instalações sanitárias limpas e dentro da edificação principal.</p>
-        </div>
-        <div class="infra-card">
-          <div class="infra-icon"><i class="fa-solid fa-book-bookmark"></i></div>
-          <h4>Biblioteca Organizada</h4>
-          <p>Acervo diversificado de livros, literatura e espaço de leitura quietinho.</p>
-        </div>
-        <div class="infra-card">
-          <div class="infra-icon"><i class="fa-solid fa-kitchen-set"></i></div>
-          <h4>Cozinha Industrial</h4>
-          <p>Espaço higienizado para o preparo adequado das refeições.</p>
-        </div>
-        <div class="infra-card">
-          <div class="infra-icon"><i class="fa-solid fa-laptop-code"></i></div>
-          <h4>Láb. de Informática</h4>
-          <p>Computadores com acesso à internet para pesquisas e aulas tecnológicas.</p>
-        </div>
-        <div class="infra-card">
-          <div class="infra-icon"><i class="fa-solid fa-flask-vial"></i></div>
-          <h4>Láb. de Ciências</h4>
-          <p>Equipamentos para aulas práticas de biologia, física e química.</p>
-        </div>
-        <div class="infra-card">
-          <div class="infra-icon"><i class="fa-solid fa-volleyball"></i></div>
-          <h4>Quadra de Esportes</h4>
-          <p>Espaço coberto para educação física, torneios e festividades.</p>
-        </div>
-        <div class="infra-card">
-          <div class="infra-icon"><i class="fa-solid fa-user-tie"></i></div>
-          <h4>Sala da Diretoria / Pedagógico</h4>
-          <p>Atendimento aos pais e gestão da unidade escolar.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BANCO DE FOTOS POR ABAS -->
-  <section id="galeria" class="section-padding">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-badge">Registros Visuais</span>
-        <h2 class="section-title">Banco de Fotos do Colégio</h2>
-        <p class="section-subtitle">Navegue pelas fotos internas, externas e dos eventos do C.E.I.A.S.</p>
-      </div>
-
-      <div class="tabs-control">
-        <button class="gallery-tab-btn active" onclick="switchGalleryTab(event, 'gal-internas')">
-          <i class="fa-solid fa-house-laptop"></i> Fotos Internas
-        </button>
-        <button class="gallery-tab-btn" onclick="switchGalleryTab(event, 'gal-externas')">
-          <i class="fa-solid fa-tree"></i> Fotos Externas
-        </button>
-        <button class="gallery-tab-btn" onclick="switchGalleryTab(event, 'gal-eventos')">
-          <i class="fa-solid fa-camera-retro"></i> Eventos
-        </button>
-      </div>
-
-      <!-- Galeria Interna -->
-      <div id="gal-internas" class="gallery-pane active">
-        <div class="gallery-grid">
-          <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=800', 'Laboratório de Informática')">
-            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=400" alt="Laboratório de Informática">
-            <div class="gal-overlay"><span>Laboratório de Informática</span></div>
-          </div>
-          <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=800', 'Biblioteca Escolar')">
-            <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=400" alt="Biblioteca Escolar">
-            <div class="gal-overlay"><span>Biblioteca Escolar</span></div>
-          </div>
-          <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&q=80&w=800', 'Sala de Aula Acessível')">
-            <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&q=80&w=400" alt="Sala de Aula">
-            <div class="gal-overlay"><span>Sala de Aula Acessível</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Galeria Externa -->
-      <div id="gal-externas" class="gallery-pane">
-        <div class="gallery-grid">
-          <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=800', 'Quadra Poliesportiva')">
-            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=400" alt="Quadra">
-            <div class="gal-overlay"><span>Quadra Poliesportiva</span></div>
-          </div>
-          <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800', 'Área Verde do Campo')">
-            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=400" alt="Área Externa">
-            <div class="gal-overlay"><span>Horta Escolar e Campo</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Galeria Eventos -->
-      <div id="gal-eventos" class="gallery-pane">
-        <div class="gallery-grid">
-          <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800', 'Formatura das Turmas')">
-            <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=400" alt="Formatura">
-            <div class="gal-overlay"><span>Formatura dos Formandos</span></div>
-          </div>
-          <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=800', 'Feira Cultural')">
-            <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=400" alt="Feira Cultural">
-            <div class="gal-overlay"><span>Feira Cultural e Estudantil</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MODAL LIGHTBOX PARA AMPLIAR FOTOS -->
-  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-    <span class="lightbox-close">&times;</span>
-    <img id="lightbox-img" src="" alt="Ampliado">
-    <div id="lightbox-caption"></div>
-  </div>
-
-  <!-- SEÇÃO EQUIPE ESCOLAR, DEPOIMENTOS E CERTIFICADOS -->
-  <section id="equipe" class="section-padding bg-alt">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-badge">Corpo Docente e Colaboradores</span>
-        <h2 class="section-title">Equipe Escolar & Comunidade</h2>
-      </div>
-
-      <!-- Grid da Equipe -->
-      <div class="team-grid">
-        <div class="team-card">
-          <div class="team-avatar"><i class="fa-solid fa-user-gear"></i></div>
-          <h4>Diretoria Escolar</h4>
-          <p>Gestão participativa e administrativa da unidade.</p>
-        </div>
-        <div class="team-card">
-          <div class="team-avatar"><i class="fa-solid fa-person-chalkboard"></i></div>
-          <h4>Equipe Pedagógica</h4>
-          <p>Orientação e apoio pedagógico contínuo aos alunos.</p>
-        </div>
-        <div class="team-card">
-          <div class="team-avatar"><i class="fa-solid fa-graduation-cap"></i></div>
-          <h4>Corpo Docente</h4>
-          <p>Professores qualificados com dedicação à educação rural.</p>
-        </div>
-        <div class="team-card">
-          <div class="team-avatar"><i class="fa-solid fa-paste"></i></div>
-          <h4>Secretaria & Apoio</h4>
-          <p>Atendimento de matrículas, certificados e documentação.</p>
-        </div>
-      </div>
-
-      <!-- Depoimentos -->
-      <div class="testimonials-container">
-        <h3 class="sub-section-title"><i class="fa-solid fa-comments"></i> Depoimentos de Alunos e Professores</h3>
-        <div class="testimonials-grid">
-          <div class="testimonial-card">
-            <i class="fa-solid fa-quote-left quote-icon"></i>
-            <p>"Estudar no C.E.I.A.S abriu portas incríveis para a minha formação universitária sem me afastar das minhas raízes no campo."</p>
-            <div class="testimonial-author">
-              <strong>Lucas M.</strong>
-              <span>Ex-Aluno (Engenharia Agronômica)</span>
-            </div>
-          </div>
-          <div class="testimonial-card">
-            <i class="fa-solid fa-quote-left quote-icon"></i>
-            <p>"Lecionar no C.E.I.A.S é ver a transformação diária de vidas através da educação pública gratuita e de valor."</p>
-            <div class="testimonial-author">
-              <strong>Profª. Rosana Silva</strong>
-              <span>Docente de Ciências</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Certificados -->
-      <div class="certificates-box">
-        <i class="fa-solid fa-award cert-icon"></i>
-        <div>
-          <h4>Certificados & Reconhecimento Institucional</h4>
-          <p>O C.E.I.A.S possui selos estaduais por boas práticas na educação do campo, índice elevado de desenvolvimento e inclusão acessível.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SEÇÃO INDICADORES EDUCACIONAIS (GRÁFICO) -->
-  <section id="indicadores" class="section-padding">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-badge">Transparência Educacional</span>
-        <h2 class="section-title">Detalhamento de Rendimento Escolar</h2>
-        <p class="section-subtitle">Acompanhe as estatísticas de aprovação, reprovação e abandono escolar por ano letivo.</p>
-      </div>
-
-      <div class="chart-wrapper">
-        <canvas id="chartRendimento"></canvas>
-      </div>
-    </div>
-  </section>
-
-  <!-- SEÇÃO MATRÍCULA ESPECIAL COM IA & WHATSAPP -->
-  <section id="matricula" class="section-padding bg-alt">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-badge"><i class="fa-solid fa-sparkles"></i> Assistente Inteligente</span>
-        <h2 class="section-title">Central de Matrículas com Assistente IA</h2>
-        <p class="section-subtitle">Tire suas dúvidas em tempo real com nossa inteligência artificial e envie seu atendimento direto para o WhatsApp do C.E.I.A.S.</p>
-      </div>
-
-      <div class="ai-chat-wrapper">
-        <div class="chat-header">
-          <div class="chat-header-info">
-            <div class="bot-status-dot"></div>
-            <i class="fa-solid fa-robot"></i>
-            <span>Assistente C.E.I.A.S IA</span>
-          </div>
-          <span class="badge-online">Online</span>
-        </div>
-
-        <div class="chat-body" id="chat-messages">
-          <div class="msg msg-bot">
-            Olá! Sou o assistente virtual do <strong>C.E.I.A.S</strong>. Como posso te ajudar com matrículas, lista de documentos ou informações sobre as aulas hoje?
-          </div>
-        </div>
-
-        <!-- Sugestões Rápidas -->
-        <div class="quick-chips">
-          <button class="chip-btn" onclick="sendQuickPrompt('Quais documentos preciso para a matrícula?')">Documentos Necessários</button>
-          <button class="chip-btn" onclick="sendQuickPrompt('Quais os horários das aulas?')">Horários das Aulas</button>
-          <button class="chip-btn" onclick="sendQuickPrompt('Como funciona o transporte escolar do campo?')">Transporte do Campo</button>
-        </div>
-
-        <div class="chat-footer">
-          <input type="text" id="chat-input" placeholder="Digite sua pergunta aqui..." onkeypress="handleKeyPress(event)">
-          <button id="chat-send-btn" onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
-        </div>
-
-        <div class="whatsapp-action-area">
-          <button class="btn-whatsapp-send" onclick="sendToWhatsApp()">
-            <i class="fa-brands fa-whatsapp"></i> Transferir Atendimento para o WhatsApp do Colégio
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTATO & RODAPÉ -->
-  <footer id="contato" class="footer">
-    <div class="container footer-grid">
-      <div class="footer-col">
-        <div class="logo-group white">
-          <div class="logo-badge"><i class="fa-solid fa-graduation-cap"></i></div>
-          <span class="brand-title">C.E.I.A.S</span>
-        </div>
-        <p class="footer-desc">
-          Colégio Estadual do Campo Irmã Ambrósia Sabatovich.<br>
-          Garantindo educação pública, inclusiva e acessível para a nossa comunidade rural.
+        <p class="paragrafo-destaque">
+          A história da nossa instituição começou a ser traçada no início da década de 1970, em um período de forte crescimento comunitário e escassez de vagas escolares na região. Diante da necessidade urgente de oferecer educação de qualidade e acolhimento para os filhos dos trabalhadores locais, um pequeno grupo de moradores, voluntários e líderes comunitários uniu forças para erguer as primeiras salas de aula.
         </p>
+
+        <p>
+          Nos primeiros anos, a estrutura funcionava de maneira simples em um galpão cedido pela comunidade local. As dificuldades financeiras e estruturais eram superadas pela dedicação diária dos primeiros professores, que não apenas lecionavam, mas também cuidavam da manutenção do espaço e da merenda dos alunos. À medida que o bairro crescia, a reputação do espaço como um ambiente seguro, ético e focado no desenvolvimento humano se consolidou, atraindo cada vez mais famílias.
+        </p>
+
+        <p>
+          Ao longo das décadas de 1980 e 1990, a escola passou por ampliações significativas. O espaço físico foi estruturado com a construção do prédio principal, quadra poliesportiva, biblioteca e laboratórios de ciências. O currículo pedagógico evoluiu em paralelo, integrando novas modernizações de ensino, tecnologia na sala de aula e projetos de responsabilidade social e ambiental.
+        </p>
+
+        <p>
+          Hoje, com mais de meio século de atuação, a escola se orgulha de ter formado diversas gerações de cidadãos, profissionais e líderes que impactam positivamente a sociedade, mantendo intactos os valores de solidariedade, excelência e respeito que motivaram sua criação.
+        </p>
+
+        <!-- MARCOS HISTÓRICOS -->
+        <div class="marcos-historicos">
+          <h3>Marcos de Nossa Trajetória</h3>
+          <div class="linha-tempo">
+            <div class="item-linha-tempo">
+              <span class="ano">1972</span>
+              <div class="detalhes-tempo">
+                <strong>Fundação Comunitária</strong>
+                <p>Abertura do primeiro galpão escolar com 45 alunos matriculados.</p>
+              </div>
+            </div>
+            <div class="item-linha-tempo">
+              <span class="ano">1985</span>
+              <div class="detalhes-tempo">
+                <strong>Sede Própria</strong>
+                <p>Inauguração do prédio principal com 12 salas de aula e biblioteca.</p>
+              </div>
+            </div>
+            <div class="item-linha-tempo">
+              <span class="ano">1998</span>
+              <div class="detalhes-tempo">
+                <strong>Expansão do Ensino</strong>
+                <p>Implantação do Ensino Médio e criação dos laboratórios científicos.</p>
+              </div>
+            </div>
+            <div class="item-linha-tempo">
+              <span class="ano">2010</span>
+              <div class="detalhes-tempo">
+                <strong>Modernização Tecnológica</strong>
+                <p>Salas interativas, laboratório de informática e complexo esportivo.</p>
+              </div>
+            </div>
+            <div class="item-linha-tempo">
+              <span class="ano">Presente</span>
+              <div class="detalhes-tempo">
+                <strong>Excelência Reconhecida</strong>
+                <p>Mais de 1.200 alunos ativos e projetos de inovação pedagógica.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 2: HISTÓRIA DA IRMÃ AMBRÓSIA COM FOTO -->
+      <article class="card-historia">
+        <div class="badge-categoria">
+          <span>Legado &amp; Inclusão</span>
+        </div>
+
+        <h2>A Trajetória e o Legado de Irmã Ambrósia</h2>
+
+        <div class="layout-historia-foto">
+          <!-- Espaço para a Foto da Irmã Ambrósia -->
+          <figure class="box-foto-patrona">
+            <img 
+              src="foto-irma-ambrosia.jpg" 
+              alt="Retrato da Irmã Ambrósia" 
+              class="foto-irma-ambrosia-img"
+            >
+            <figcaption class="legenda-imagem">
+              <strong>Irmã Ambrósia (1928 - 2015)</strong><br>
+              Fundadora e Patrona de Nossa Escola
+            </figcaption>
+          </figure>
+
+          <div class="texto-biografia">
+            <p class="paragrafo-destaque">
+              Nascida no interior do país em uma família humilde e numerosa, a jovem Ambrósia desenvolveu desde cedo uma profunda vocação para o ensino e a vida religiosa. Movida pelo desejo de transformar vidas por meio do conhecimento, ela dedicou seus primeiros anos de juventude à formação pedagógica e teológica, acreditando firmemente que a educação é a ferramenta mais poderosa para a emancipação social.
+            </p>
+
+            <p>
+              Na década de 1970, atendendo ao chamado para atuar em regiões de maior vulnerabilidade social, Irmã Ambrósia chegou à comunidade disposta a construir algo duradouro. Com sua presença firme e acolhedora, ela se tornou a principal articuladora para a criação da escola. Irmã Ambrósia não apenas lecionava as primeiras disciplinas, mas também visitava as casas dos estudantes, dialogava com as famílias e garantia que nenhuma criança deixasse de frequentar as aulas por falta de recursos ou alimentação.
+            </p>
+
+            <p>
+              Sua liderança foi marcada pelo equilíbrio entre a disciplina acadêmica e a empatia irrestrita. Irmã Ambrósia acreditava que educar exigia ver cada aluno em sua individualidade, incentivando seus talentos únicos e ajudando a superar suas limitações. Mesmo após sua aposentadoria das salas de aula, permaneceu como conselheira e figura presente na rotina escolar até o fim de sua vida.
+            </p>
+
+            <p>
+              O nome e os ensinamentos de Irmã Ambrósia permanecem vivos no cotidiano da escola. Sua visão humanista continua a nortear o projeto pedagógico, inspirando alunos, professores e colaboradores a cultivarem o saber com humildade, ética e amor ao próximo.
+            </p>
+          </div>
+        </div>
+
+        <!-- CITAÇÃO DE DESTAQUE DA PATRONA -->
+        <blockquote class="citacao-patrona">
+          <p>"Educar não é apenas preencher mentes com dados, mas acender em cada coração a chama do saber e da fraternidade."</p>
+          <cite>— Irmã Ambrósia</cite>
+        </blockquote>
+
+        <!-- PILARES PEDAGÓGICOS DA PATRONA -->
+        <div class="pilares-container">
+          <h3>Os Valores Deixados por Irmã Ambrósia</h3>
+          <div class="grid-pilares">
+            <div class="pilar-card">
+              <span class="pilar-icone">❤️</span>
+              <h4>Acolhimento</h4>
+              <p>Tratar cada estudante com respeito, entendendo suas particularidades e contexto familiar.</p>
+            </div>
+            <div class="pilar-card">
+              <span class="pilar-icone">📘</span>
+              <h4>Rigor Acadêmico</h4>
+              <p>Busca constante pelo conhecimento atualizado, estimulando o pensamento crítico.</p>
+            </div>
+            <div class="pilar-card">
+              <span class="pilar-icone">🤝</span>
+              <h4>Solidariedade</h4>
+              <p>Formar cidadãos conscientes de seu papel de transformação na comunidade.</p>
+            </div>
+            <div class="pilar-card">
+              <span class="pilar-icone">🌱</span>
+              <h4>Ética e Humildade</h4>
+              <p>Promover atitudes pautadas pelo diálogo, honestidade e cooperação.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- ========================================== -->
+    <!-- ABA 2: INFORMAÇÕES ESCOLARES -->
+    <!-- ========================================== -->
+    <section id="informacoes" class="tab-content">
+      <div class="cabecalho-aba">
+        <h2>Informações Escolares &amp; Organização</h2>
+        <p>Confira os horários de funcionamento, níveis de ensino e regulamentos internos.</p>
       </div>
 
-      <div class="footer-col">
-        <h4><i class="fa-solid fa-address-book"></i> Meios de Contato</h4>
-        <ul class="contact-list">
-          <li><i class="fa-brands fa-whatsapp"></i> WhatsApp: (41) 99999-8888</li>
-          <li><i class="fa-solid fa-envelope"></i> Gmail: ceias.escola@escola.pr.gov.br</li>
-          <li><i class="fa-solid fa-clock"></i> Atendimento: Seg a Sex (07h30 às 17h)</li>
+      <!-- HORÁRIOS DE AULA -->
+      <article class="card-conteudo">
+        <h3>Horários por Turno</h3>
+        <p>Garantimos pontualidade e organização em todas as atividades diárias.</p>
+
+        <div class="tabela-responsive">
+          <table class="tabela-padrao">
+            <thead>
+              <tr>
+                <th>Segmento</th>
+                <th>Turno Matutino</th>
+                <th>Turno Vespertino</th>
+                <th>Integral</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Educação Infantil</td>
+                <td>07h30 às 11h45</td>
+                <td>13h15 às 17h30</td>
+                <td>07h00 às 18h00</td>
+              </tr>
+              <tr>
+                <td>Ensino Fundamental I (1º ao 5º ano)</td>
+                <td>07h15 às 11h50</td>
+                <td>13h00 às 17h35</td>
+                <td>07h00 às 18h00</td>
+              </tr>
+              <tr>
+                <td>Ensino Fundamental II (6º ao 9º ano)</td>
+                <td>07h00 às 12h25</td>
+                <td>13h00 às 18h25</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>Ensino Médio (1ª a 3ª série)</td>
+                <td>07h00 às 12h50</td>
+                <td>Contraturno Técnico</td>
+                <td>-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <!-- NÍVEIS DE ENSINO -->
+      <article class="card-conteudo">
+        <h3>Segmentos de Ensino Atendidos</h3>
+        <div class="grid-segmentos">
+          <div class="segmento-item">
+            <h4>Educação Infantil</h4>
+            <p>Foco no desenvolvimento psicomotor, ludicidade, socialização e primeiras experiências com a linguagem e os números.</p>
+            <ul>
+              <li>Maternal I e II</li>
+              <li>Jardim I e II</li>
+            </ul>
+          </div>
+
+          <div class="segmento-item">
+            <h4>Ensino Fundamental I</h4>
+            <p>Processo de alfabetização consolidado, letramento matemático, ciências da natureza e desenvolvimento de valores sociais.</p>
+            <ul>
+              <li>1º ao 5º Ano</li>
+              <li>Aulas de Inglês e Artes</li>
+            </ul>
+          </div>
+
+          <div class="segmento-item">
+            <h4>Ensino Fundamental II</h4>
+            <p>Aprofundamento das áreas do conhecimento, iniciação científica, raciocínio lógico e estímulo ao protagonismo juvenil.</p>
+            <ul>
+              <li>6º ao 9º Ano</li>
+              <li>Laboratórios Práticos</li>
+            </ul>
+          </div>
+
+          <div class="segmento-item">
+            <h4>Ensino Médio</h4>
+            <p>Preparação intensiva para os principais vestibulares e ENEM, itinerários formativos e orientação profissional.</p>
+            <ul>
+              <li>1ª à 3ª Série</li>
+              <li>Simulados Periódicos</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- REGRAS E UNIFORME -->
+      <article class="card-conteudo">
+        <h3>Regulamento e Uniforme Escolar</h3>
+        <div class="grid-duplo">
+          <div class="box-regras">
+            <h4>Uso do Uniforme</h4>
+            <p>O uso do uniforme completo é obrigatório para a permanência nas dependências da escola:</p>
+            <ul>
+              <li>Camiseta oficial do Colégio Irmã Ambrósia</li>
+              <li>Calça ou bermuda de helanca oficial azul-marinho</li>
+              <li>Tênis predominantemente preto, branco ou azul</li>
+              <li>Agasalho oficial para dias frios</li>
+            </ul>
+          </div>
+
+          <div class="box-regras">
+            <h4>Normas de Convivência</h4>
+            <p>Visando um ambiente seguro e saudável, adotamos as seguintes orientações:</p>
+            <ul>
+              <li>Pontualidade na entrada e saída dos portões</li>
+              <li>Uso consciente de aparelhos eletrônicos</li>
+              <li>Respeito mútuo entre estudantes, professores e funcionários</li>
+              <li>Zelo pelo patrimônio físico e ambiental da escola</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- ABA 3: PROPOSTA PEDAGÓGICA -->
+    <!-- ========================================== -->
+    <section id="proposta" class="tab-content">
+      <div class="cabecalho-aba">
+        <h2>Proposta Pedagógica &amp; Diferenciais</h2>
+        <p>Aprenda mais sobre como estruturamos nosso processo de ensino-aprendizagem.</p>
+      </div>
+
+      <article class="card-conteudo">
+        <h3>Metodologia Humanista e Sociointeracionista</h3>
+        <p>
+          Nossa proposta pedagógica baseia-se na premissa de que o aluno é o agente ativo de sua própria aprendizagem. Com mediação dos professores, incentivamos a pesquisa, a resolução colaborativa de problemas e a reflexão crítica.
+        </p>
+
+        <div class="grid-diferenciais">
+          <div class="diferencial-card">
+            <h4>Bilinguismo e Cultura</h4>
+            <p>Carga horária estendida na língua inglesa, preparando o estudante para contextos globais e certificações internacionais.</p>
+          </div>
+
+          <div class="diferencial-card">
+            <h4>Educação Socioemocional</h4>
+            <p>Aulas voltadas ao autoconhecimento, inteligência emocional, empatia e habilidades para resolução pacificadora de conflitos.</p>
+          </div>
+
+          <div class="diferencial-card">
+            <h4>Robótica e Inovação</h4>
+            <p>Oficinas de programação, robótica educacional e cultura maker para estimular o raciocínio lógico e a criatividade.</p>
+          </div>
+
+          <div class="diferencial-card">
+            <h4>Esporte e Cultura</h4>
+            <p>Escolhas de modalidades esportivas (futsal, basquete, voleibol, judô) e oficinas artísticas (teatro, música, artes visuais).</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- PROJETOS CONTINUADOS -->
+      <article class="card-conteudo">
+        <h3>Projetos Institucionais de Destaque</h3>
+        <div class="lista-projetos">
+          <div class="projeto-box">
+            <h4>🌱 Feira de Ciências e Sustentabilidade</h4>
+            <p>Evento anual onde estudantes desenvolvem pesquisas e experimentos voltados à preservação ambiental e energias renováveis.</p>
+          </div>
+          <div class="projeto-box">
+            <h4>📖 Feira Literária e de Artes</h4>
+            <p>Incentivo à leitura com produção de livros autorais pelos alunos, apresentações teatrais e exposições de artes plásticas.</p>
+          </div>
+          <div class="projeto-box">
+            <h4>🤝 Ação Social Irmã Ambrósia</h4>
+            <p>Campanhas solidárias de arrecadação de alimentos, agasalhos e brinquedos organizadas pelos estudantes para entidades parceiras.</p>
+          </div>
+          <div class="projeto-box">
+            <h4>🏛️ Simulação das Nações Unidas (AMBROMUN)</h4>
+            <p>Debates diplomáticos simulados pelos alunos do Ensino Médio sobre geopolítica, direitos humanos e diplomacia.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- ABA 4: GALERIA DE FOTOS -->
+    <!-- ========================================== -->
+    <section id="galeria" class="tab-content">
+      <div class="cabecalho-aba">
+        <h2>Galeria de Fotos</h2>
+        <p>Conheça nossas instalações, espaços pedagógicos e eventos marcantes.</p>
+      </div>
+
+      <article class="card-conteudo">
+        <h3>Nossos Espaços</h3>
+        <div class="grid-galeria">
+          <div class="item-galeria">
+            <div class="img-placeholder">Foto: Fachada e Entrada Principal</div>
+            <div class="legenda-galeria">Entrada Principal e Recepção</div>
+          </div>
+          <div class="item-galeria">
+            <div class="img-placeholder">Foto: Salas de Aula Climatizadas</div>
+            <div class="legenda-galeria">Salas com Lousa Digital</div>
+          </div>
+          <div class="item-galeria">
+            <div class="img-placeholder">Foto: Biblioteca Irmã Ambrósia</div>
+            <div class="legenda-galeria">Acervo com mais de 10.000 títulos</div>
+          </div>
+          <div class="item-galeria">
+            <div class="img-placeholder">Foto: Laboratório de Química/Biologia</div>
+            <div class="legenda-galeria">Laboratório Multidisciplinar</div>
+          </div>
+          <div class="item-galeria">
+            <div class="img-placeholder">Foto: Quadra Poliesportiva Coberta</div>
+            <div class="legenda-galeria">Complexo Esportivo</div>
+          </div>
+          <div class="item-galeria">
+            <div class="img-placeholder">Foto: Pátio Arborizado e Cantina</div>
+            <div class="legenda-galeria">Área de Convivência</div>
+          </div>
+          <div class="item-galeria">
+            <div class="img-placeholder">Foto: Espaço Maker e Robótica</div>
+            <div class="legenda-galeria">Laboratório de Inovação</div>
+          </div>
+          <div class="item-galeria">
+            <div class="img-placeholder">Foto: Parquinho Infantil</div>
+            <div class="legenda-galeria">Área Recreativa da Ed. Infantil</div>
+          </div>
+          <div class="item-galeria">
+            <div class="img-placeholder">Foto: Auditório Principal</div>
+            <div class="legenda-galeria">Auditório para 300 pessoas</div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- ABA 5: PERGUNTAS FREQUENTES (FAQ) -->
+    <!-- ========================================== -->
+    <section id="faq" class="tab-content">
+      <div class="cabecalho-aba">
+        <h2>Perguntas Frequentes</h2>
+        <p>Tire suas dúvidas sobre o processo de matrícula, bolsas e rotina escolar.</p>
+      </div>
+
+      <article class="card-conteudo">
+        <div class="faq-container">
+
+          <div class="faq-item">
+            <h3 class="faq-pergunta">1. Como funciona o processo de matrícula para novos alunos?</h3>
+            <div class="faq-resposta">
+              <p>O processo inclui o agendamento de uma visita guiada às nossas instalações, apresentação da proposta pedagógica pela equipe diretiva e a realização de uma entrevista com a coordenação pedagógica.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-pergunta">2. Quais documentos são necessários para a efetivação da matrícula?</h3>
+            <div class="faq-resposta">
+              <p>São necessários: Certidão de Nascimento do aluno, RG e CPF do responsável financeiro, Comprovante de Residência atualizado, Histórico Escolar ou Declaração de Transferência e Carteira de Vacinação atualizada.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-pergunta">3. A escola oferece bolsas de estudo ou descontos?</h3>
+            <div class="faq-resposta">
+              <p>Sim. Contamos com programas de bolsas sociais de estudo através do edital anual, além de descontos especiais para irmãos e convênios com empresas parceiras.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-pergunta">4. Há serviço de transporte escolar credenciado?</h3>
+            <div class="faq-resposta">
+              <p>A escola possui parcerias com motoristas autônomos credenciados pela prefeitura e fiscalizados periodicamente para garantir a segurança dos estudantes.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-pergunta">5. Quais são as atividades extracurriculares oferecidas?</h3>
+            <div class="faq-resposta">
+              <p>Oferecemos Robótica, Futsal, Vôlei, Judô, Ballet, Teatro, Coral e Aulas de Apoio Pedagógico no contraturno escolar.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-pergunta">6. Como a família acompanha o desempenho pedagógico do aluno?</h3>
+            <div class="faq-resposta">
+              <p>O acompanhamento é feito em tempo real por meio do nosso aplicativo escolar oficial, boletins trimestrais e reuniões presenciais periódicas de pais e mestres.</p>
+            </div>
+          </div>
+
+        </div>
+      </article>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- ABA 6: CONTATO E LOCALIZAÇÃO -->
+    <!-- ========================================== -->
+    <section id="contato" class="tab-content">
+      <div class="cabecalho-aba">
+        <h2>Fale Conosco &amp; Localização</h2>
+        <p>Estamos à disposição para atender você e sua família.</p>
+      </div>
+
+      <div class="grid-contato-layout">
+
+        <!-- FORMULÁRIO DE CONTATO -->
+        <article class="card-conteudo">
+          <h3>Envie uma Mensagem</h3>
+          <p>Preencha o formulário abaixo e retornaremos em até 24 horas úteis.</p>
+
+          <form class="form-contato" onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');">
+            <div class="form-grupo">
+              <label for="nome-completo">Nome Completo do Responsável</label>
+              <input type="text" id="nome-completo" placeholder="Ex: Maria Silva" required>
+            </div>
+
+            <div class="form-grid-duplo">
+              <div class="form-grupo">
+                <label for="email-contato">E-mail de Contato</label>
+                <input type="email" id="email-contato" placeholder="Ex: maria@email.com" required>
+              </div>
+
+              <div class="form-grupo">
+                <label for="telefone-contato">Telefone / WhatsApp</label>
+                <input type="tel" id="telefone-contato" placeholder="Ex: (11) 99999-8888" required>
+              </div>
+            </div>
+
+            <div class="form-grid-duplo">
+              <div class="form-grupo">
+                <label for="assunto-mensagem">Assunto Principal</label>
+                <select id="assunto-mensagem" required>
+                  <option value="">Selecione um assunto...</option>
+                  <option value="matriculas">Informações sobre Matrículas</option>
+                  <option value="visita">Agendamento de Visita</option>
+                  <option value="financeiro">Secretaria / Financeiro</option>
+                  <option value="coordenacao">Atendimento Pedagógico</option>
+                  <option value="outros">Outros Assuntos</option>
+                </select>
+              </div>
+
+              <div class="form-grupo">
+                <label for="serie-interesse">Série de Interesse</label>
+                <select id="serie-interesse">
+                  <option value="">Selecione a série (opcional)...</option>
+                  <option value="infantil">Educação Infantil</option>
+                  <option value="fund1">Ensino Fundamental I</option>
+                  <option value="fund2">Ensino Fundamental II</option>
+                  <option value="medio">Ensino Médio</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-grupo">
+              <label for="mensagem-texto">Sua Mensagem</label>
+              <textarea id="mensagem-texto" rows="5" placeholder="Escreva aqui suas dúvidas ou solicitações..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">Enviar Mensagem</button>
+          </form>
+        </article>
+
+        <!-- INFORMAÇÕES DE ATENDIMENTO -->
+        <article class="card-conteudo">
+          <h3>Canais de Atendimento</h3>
+
+          <div class="box-canais">
+            <div class="canal-item">
+              <strong>📍 Endereço Principal</strong>
+              <p>Rua das Flores, nº 123 - Bairro Centro<br>CEP: 01234-567 - São Paulo / SP</p>
+            </div>
+
+            <div class="canal-item">
+              <strong>📞 Telefones Directos</strong>
+              <p>Secretaria: (11) 3456-7890<br>WhatsApp Matrículas: (11) 98765-4321</p>
+            </div>
+
+            <div class="canal-item">
+              <strong>⏰ Horário de Funcionamento</strong>
+              <p>Segunda a Sexta-feira: 07h00 às 18h30<br>Sábados (Secretaria): 08h00 às 12h00</p>
+            </div>
+
+            <div class="canal-item">
+              <strong>✉️ Departamentos por E-mail</strong>
+              <p>
+                <strong>Secretaria:</strong> secretaria@colegioirmaambrosia.edu.br<br>
+                <strong>Financeiro:</strong> financeiro@colegioirmaambrosia.edu.br<br>
+                <strong>Pedagógico:</strong> pedagogico@colegioirmaambrosia.edu.br
+              </p>
+            </div>
+          </div>
+
+          <!-- MAPA PLACEHOLDER -->
+          <div class="mapa-container">
+            <div class="mapa-placeholder">
+              <span>📍 Mapa de Localização Interativo</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ DO SITE -->
+  <footer class="footer-principal">
+    <div class="footer-container">
+      
+      <div class="footer-coluna">
+        <h4>Colégio Irmã Ambrósia</h4>
+        <p>Tradição, afeto e excelência no ensino desde 1972. Formando cidadãos preparados para transformar o futuro.</p>
+      </div>
+
+      <div class="footer-coluna">
+        <h4>Acesso Rápido</h4>
+        <ul class="footer-links">
+          <li><a href="#" onclick="openTab(event, 'historia')">Nossa História</a></li>
+          <li><a href="#" onclick="openTab(event, 'informacoes')">Informações Escolares</a></li>
+          <li><a href="#" onclick="openTab(event, 'proposta')">Proposta Pedagógica</a></li>
+          <li><a href="#" onclick="openTab(event, 'galeria')">Galeria de Fotos</a></li>
+          <li><a href="#" onclick="openTab(event, 'faq')">Perguntas Frequentes</a></li>
+          <li><a href="#" onclick="openTab(event, 'contato')">Fale Conosco</a></li>
         </ul>
       </div>
 
-      <div class="footer-col">
-        <h4><i class="fa-solid fa-location-dot"></i> Localização</h4>
-        <p>Zona Rural - Comunidade Escolar</p>
-        <p>Acesso Principal via Estrada do Campo</p>
-        <p class="public-badge-footer"><i class="fa-solid fa-building-columns"></i> Instituição Pública Estadual</p>
+      <div class="footer-coluna">
+        <h4>Horário de Atendimento</h4>
+        <p>Segunda a Sexta: 07h00 às 18h30</p>
+        <p>Sábado: 08h00 às 12h00</p>
+        <p>Domingos e Feriados: Fechado</p>
       </div>
+
+      <div class="footer-coluna">
+        <h4>Redes Sociais</h4>
+        <p>Acompanhe nosso dia a dia e fique por dentro dos eventos escolares:</p>
+        <div class="footer-social-links">
+          <a href="#">Facebook</a> | 
+          <a href="#">Instagram</a> | 
+          <a href="#">YouTube</a>
+        </div>
+      </div>
+
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; 2026 C.E.I.A.S - Colégio Estadual do Campo Irmã Ambrósia Sabatovich. MARIA VITORIA - MARIA EDUARDA.</p>
+      <p>&copy; 2026 Colégio Irmã Ambrósia. Todos os direitos reservados. | Desenvolvido com carinho para nossa comunidade.</p>
     </div>
   </footer>
 
-  <!-- JS Principal -->
+  <!-- ARQUIVO SCRIPT JAVASCRIPT -->
   <script src="script.js"></script>
 </body>
 </html>
