@@ -1,12 +1,12 @@
 /* ==========================================================================
    C.E.I.A.S - COLÉGIO ESTADUAL DO CAMPO IRMÃ AMBRÓSIA SABATOVICH
-   SCRIPT PRINCIPAL DE INTERATIVIDADE E IA
+   SCRIPT PRINCIPAL DE INTERATIVIDADE, GRÁFICOS E IA
    Arquivo: script.js
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* 1. MENU HAMBÚRGUER & NAVEGAÇÃO RESPONSIVA */
+  /* 1. MENU HAMBÚRGUER PARA DISPOSITIVOS MÓVEIS */
   const hamburgerBtn = document.getElementById('hamburger-btn');
   const navMenu = document.getElementById('nav-menu');
 
@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
       navMenu.classList.toggle('active');
     });
 
-    // Fechar menu ao clicar em qualquer opção de navegação
     document.querySelectorAll('.nav-item').forEach(item => {
       item.addEventListener('click', () => {
         navMenu.classList.remove('active');
@@ -23,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* 2. BARRA DE ACESSIBILIDADE DE TOPO */
+  /* 2. CONTROLES DA BARRA DE ACESSIBILIDADE */
   const btnContrast = document.getElementById('btn-contrast');
   const btnIncrease = document.getElementById('btn-increase-font');
   const btnDecrease = document.getElementById('btn-decrease-font');
@@ -62,37 +61,34 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isSpeaking) {
           window.speechSynthesis.cancel();
           isSpeaking = false;
-          const ttsSpan = document.getElementById('tts-text');
-          if (ttsSpan) ttsSpan.textContent = 'Ouvir Página';
+          document.getElementById('tts-text').textContent = 'Ouvir Página';
         } else {
           const activeTabContent = document.querySelector('.tab-content.active');
           const pageText = activeTabContent ? activeTabContent.innerText : document.body.innerText;
           const utterance = new SpeechSynthesisUtterance(pageText.substring(0, 1200));
           utterance.lang = 'pt-BR';
-          
+
           utterance.onend = () => {
             isSpeaking = false;
-            const ttsSpan = document.getElementById('tts-text');
-            if (ttsSpan) ttsSpan.textContent = 'Ouvir Página';
+            document.getElementById('tts-text').textContent = 'Ouvir Página';
           };
 
           window.speechSynthesis.speak(utterance);
           isSpeaking = true;
-          const ttsSpan = document.getElementById('tts-text');
-          if (ttsSpan) ttsSpan.textContent = 'Parar Áudio';
+          document.getElementById('tts-text').textContent = 'Parar Áudio';
         }
       } else {
-        alert('Seu navegador não possui suporte ao recurso de leitura por áudio.');
+        alert('Seu navegador não possui suporte ao recurso de leitura de texto.');
       }
     });
   }
 
-  /* 3. INICIALIZAÇÃO DO GRÁFICO EDUCACIONAL (CHART.JS) */
+  /* 3. INICIALIZAÇÃO DO GRÁFICO EDUCACIONAL */
   initChartRendimento();
 });
 
 /* ==========================================================================
-   SISTEMA PRINCIPAL DE ABAS DO SITE
+   SISTEMA DE TROCA DE ABAS PRINCIPAIS DO SITE
    ========================================================================== */
 function switchMainTab(evt, tabId) {
   const allTabPanes = document.querySelectorAll('.tab-content');
@@ -108,17 +104,13 @@ function switchMainTab(evt, tabId) {
 
   if (evt && evt.currentTarget) {
     evt.currentTarget.classList.add('active');
-  } else {
-    const btn = document.querySelector(`[onclick*="'${tabId}'"]`);
-    if (btn) btn.classList.add('active');
   }
 
-  // Rolar suavemente até o topo do conteúdo da aba
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 /* ==========================================================================
-   ABAS DE ENSINO (GRADE CURRICULAR)
+   SUB-ABAS DE ENSINO (FUNDAMENTAL E MÉDIO)
    ========================================================================== */
 function switchSubTab(evt, subtabId) {
   const container = evt.currentTarget.closest('.tab-content');
@@ -136,7 +128,7 @@ function switchSubTab(evt, subtabId) {
 }
 
 /* ==========================================================================
-   ABAS DE GALERIA DE FOTOS
+   SUB-ABAS DE GALERIA DE FOTOS (INTERNAS, EXTERNAS E EVENTOS)
    ========================================================================== */
 function switchGalleryTab(evt, galleryId) {
   const container = evt.currentTarget.closest('.tab-content');
@@ -154,7 +146,7 @@ function switchGalleryTab(evt, galleryId) {
 }
 
 /* ==========================================================================
-   LIGHTBOX DA GALERIA DE FOTOS
+   MODAL LIGHTBOX PARA AMPLIAR FOTOS DA GALERIA
    ========================================================================== */
 function openLightbox(imgSrc, captionText) {
   const lightbox = document.getElementById('lightbox');
@@ -176,7 +168,8 @@ function closeLightbox() {
 }
 
 /* ==========================================================================
-   GRÁFICO DE RENDIMENTO ESCOLAR (CHART.JS)
+   GRÁFICO DETALHADO DE RENDIMENTO ESCOLAR (CHART.JS)
+   Separado por ano escolar (6º ao 9º do Fundamental e 1º ao 3º do Médio)
    ========================================================================== */
 function initChartRendimento() {
   const canvas = document.getElementById('chartRendimento');
@@ -186,7 +179,7 @@ function initChartRendimento() {
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['6º Ano', '7º Ano', '8º Ano', '9º Ano', '1º Médio', '2º Médio', '3º Médio'],
+      labels: ['6º Ano (Fund.)', '7º Ano (Fund.)', '8º Ano (Fund.)', '9º Ano (Fund.)', '1º Ano (Médio)', '2º Ano (Médio)', '3º Ano (Médio)'],
       datasets: [
         {
           label: '% Aprovação',
@@ -213,14 +206,13 @@ function initChartRendimento() {
       maintainAspectRatio: true,
       plugins: {
         legend: {
+          display: true,
           position: 'top',
-          labels: {
-            font: { family: 'Plus Jakarta Sans', size: 12 }
-          }
+          labels: { font: { family: 'Plus Jakarta Sans', size: 12, weight: '600' } }
         },
         title: {
           display: true,
-          text: 'Rendimento Por Ano Escolar (%) - C.E.I.A.S',
+          text: 'Rendimento Escolar C.E.I.A.S por Ano Letivo (%)',
           font: { family: 'Plus Jakarta Sans', size: 16, weight: '700' }
         }
       },
@@ -228,9 +220,7 @@ function initChartRendimento() {
         y: {
           beginAtZero: true,
           max: 100,
-          ticks: {
-            callback: function(value) { return value + "%"; }
-          }
+          ticks: { callback: function(value) { return value + "%"; } }
         }
       }
     }
@@ -238,7 +228,7 @@ function initChartRendimento() {
 }
 
 /* ==========================================================================
-   CHATBOT VIRTUAL DE IA E INTEGRAÇÃO COM WHATSAPP
+   ASSISTENTE DE IA E INTEGRAÇÃO COM WHATSAPP DA ESCOLA
    ========================================================================== */
 let conversationLog = [];
 
@@ -253,7 +243,6 @@ function appendChatMessage(sender, text) {
   chatMessages.appendChild(msgDiv);
   chatMessages.scrollTop = chatMessages.scrollHeight;
 
-  // Registro do histórico de conversa para envio ao WhatsApp
   const cleanText = text.replace(/<[^>]*>?/gm, '');
   conversationLog.push(`${sender === 'user' ? 'Aluno/Responsável' : 'Assistente Virtual'}: ${cleanText}`);
 }
@@ -274,43 +263,41 @@ function sendMessage() {
   appendChatMessage('user', text);
   input.value = '';
 
-  // Simulação de resposta inteligente da IA
   setTimeout(() => {
     generateAIResponse(text);
-  }, 600);
+  }, 500);
 }
 
 function sendQuickPrompt(promptText) {
   appendChatMessage('user', promptText);
   setTimeout(() => {
     generateAIResponse(promptText);
-  }, 600);
+  }, 500);
 }
 
 function generateAIResponse(userText) {
   const text = userText.toLowerCase();
-  let reply = "Obrigado pela mensagem! Sou o assistente virtual do C.E.I.A.S. Para assuntos específicos, você também pode clicar no botão verde abaixo para conversar diretamente com a secretaria pelo WhatsApp.";
+  let reply = "Obrigado pelo seu contato! Sou o assistente virtual do C.E.I.A.S. Para assuntos específicos, você pode clicar no botão verde abaixo para encaminhar esta conversa diretamente ao WhatsApp da nossa secretaria.";
 
   if (text.includes('documento') || text.includes('matricula') || text.includes('matrícula')) {
-    reply = "Para realizar a matrícula no C.E.I.A.S são necessários:<br>1. Certidão de Nascimento do aluno<br>2. RG e CPF do aluno e responsável<br>3. Comprovante de Residência recente (luz)<br>4. Histórico Escolar original.";
+    reply = "<strong>Documentos necessários para matrícula no C.E.I.A.S:</strong><br>1. Certidão de Nascimento do estudante<br>2. RG e CPF do estudante e dos pais/responsáveis<br>3. Comprovante de Residência recente (fatura de energia)<br>4. Histórico Escolar original ou declaração de transferência.";
   } else if (text.includes('horario') || text.includes('horário') || text.includes('aula')) {
-    reply = "Nossos horários de aula são:<br>• Turno Matutino: 07h30 às 12h00<br>• Turno Vespertino: 13h00 às 17h30.";
+    reply = "<strong>Horários de Funcionamento do C.E.I.A.S:</strong><br>• Turno Matutino: 07h30 às 12h00<br>• Turno Vespertino: 13h00 às 17h30.";
   } else if (text.includes('transporte') || text.includes('ônibus') || text.includes('onibus')) {
-    reply = "O C.E.I.A.S conta com transporte escolar público e gratuito garantido para os estudantes residentes na zona rural!";
+    reply = "O C.E.I.A.S oferece <strong>transporte escolar público e gratuito</strong> garantido para todos os alunos residentes na zona rural.";
   } else if (text.includes('público') || text.includes('publico') || text.includes('paga') || text.includes('valor')) {
-    reply = "O C.E.I.A.S é um <strong>Colégio Estadual Público 100% Gratuito</strong>. Não há cobrança de mensalidades ou taxas.";
+    reply = "O C.E.I.A.S é uma <strong>Escola Pública Estadual 100% Gratuita</strong>. Não há cobrança de mensalidades, matrículas ou taxas de materiais.";
   }
 
   appendChatMessage('bot', reply);
 }
 
-/* Envio do Atendimento para o WhatsApp do Celular da Escola */
 function sendToWhatsApp() {
-  const phoneNumber = "5541999998888"; // Substituir pelo celular/WhatsApp oficial da escola
-  let formattedText = "*Atendimento pelo Site - C.E.I.A.S*\n\n";
+  const phoneNumber = "5541999998888"; // Insira aqui o WhatsApp do celular do colégio
+  let formattedText = "*Atendimento do Site - C.E.I.A.S*\n\n";
 
   if (conversationLog.length > 0) {
-    formattedText += "*Histórico da Conversa com o Assistente IA:*\n" + conversationLog.join("\n") + "\n\n";
+    formattedText += "*Histórico da Conversa com a IA:*\n" + conversationLog.join("\n") + "\n\n";
   }
 
   formattedText += "Gostaria de dar continuidade ao atendimento com a secretaria do colégio.";
