@@ -8,21 +8,25 @@
   <!-- Google Fonts & Font Awesome Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Estilo Azul Claro Lovable UI -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- Chart.js para o Gráfico de Rendimento -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
-  <!-- BARRA DE ACESSIBILIDADE DE TOPO -->
+  <!-- ELEMENTOS DE AMBIENTE VIVO DE FUNDO -->
+  <div class="bg-blobs-container" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <!-- BARRA DE ACESSIBILIDADE -->
   <div class="accessibility-bar" id="accessibility-bar">
     <div class="container accessibility-container">
-      <span class="access-label"><i class="fa-solid fa-universal-access"></i> Acessibilidade</span>
+      <span class="access-label"><i class="fa-solid fa-universal-access pulse-icon"></i> AcessibilidadeAtiva</span>
       <div class="access-buttons">
         <button id="btn-contrast" title="Alternar Alto Contraste"><i class="fa-solid fa-circle-half-stroke"></i> Contraste</button>
         <button id="btn-increase-font" title="Aumentar Fonte">A+</button>
@@ -32,115 +36,113 @@
     </div>
   </div>
 
-  <!-- CABEÇALHO E MENU NAVEGAÇÃO POR ABAS -->
+  <!-- CABEÇALHO COM EFETIVO GLASSMORPHISM -->
   <header class="navbar">
     <div class="container nav-container">
       <a href="#" class="logo-group" onclick="switchMainTab(event, 'tab-historia')">
-        <div class="logo-badge">
+        <div class="logo-badge glow-effect">
           <i class="fa-solid fa-graduation-cap"></i>
         </div>
         <div class="logo-text">
           <span class="brand-title">C.E.I.A.S</span>
-          <span class="public-tag"><i class="fa-solid fa-building-columns"></i> Escola Pública Estadual</span>
+          <span class="public-tag"><span class="live-dot"></span> Escola Pública Estadual</span>
         </div>
       </a>
 
-      <!-- Menu Hambúrguer para Dispositivos Móveis -->
       <button class="hamburger" id="hamburger-btn" aria-label="Abrir Menu">
         <i class="fa-solid fa-bars"></i>
       </button>
 
-      <!-- Navegação em Abas Principais -->
       <nav class="nav-menu" id="nav-menu">
         <button class="nav-item active" onclick="switchMainTab(event, 'tab-historia')"><i class="fa-solid fa-house"></i> Início & História</button>
         <button class="nav-item" onclick="switchMainTab(event, 'tab-ensino')"><i class="fa-solid fa-book-open"></i> Ensino</button>
         <button class="nav-item" onclick="switchMainTab(event, 'tab-infraestrutura')"><i class="fa-solid fa-building"></i> Infraestrutura</button>
         <button class="nav-item" onclick="switchMainTab(event, 'tab-galeria')"><i class="fa-solid fa-images"></i> Galeria</button>
-        <button class="nav-item" onclick="switchMainTab(event, 'tab-equipe')"><i class="fa-solid fa-users"></i> Equipe & Certificados</button>
+        <button class="nav-item" onclick="switchMainTab(event, 'tab-equipe')"><i class="fa-solid fa-users"></i> Equipe</button>
         <button class="nav-item" onclick="switchMainTab(event, 'tab-indicadores')"><i class="fa-solid fa-chart-line"></i> Indicadores</button>
-        <button class="nav-item nav-btn-highlight" onclick="switchMainTab(event, 'tab-matricula')"><i class="fa-solid fa-robot"></i> Matrícula IA</button>
+        <button class="nav-item nav-btn-highlight shimmer-btn" onclick="switchMainTab(event, 'tab-matricula')"><i class="fa-solid fa-robot"></i> Matrícula IA</button>
         <button class="nav-item" onclick="switchMainTab(event, 'tab-contato')"><i class="fa-solid fa-envelope"></i> Notícias & Contato</button>
       </nav>
     </div>
   </header>
 
-  <!-- CONTEÚDO DAS ABAS -->
+  <!-- CONTEÚDO PRINCIPAL (SISTEMA DE ABAS) -->
   <main class="container main-wrapper">
 
     <!-- ========================================================== -->
-    <!-- ABA 1: ABA PRINCIPAL (EXCLUSIVA HISTÓRIA + LOGO + PATRONA) -->
+    <!-- ABA 1: EXCLUSIVA HISTÓRIA DO COLÉGIO, PATRONA E LOGO       -->
     <!-- ========================================================== -->
     <section id="tab-historia" class="tab-content active">
 
-      <!-- ESPAÇO DEDICADO À LOGO DO COLÉGIO -->
-      <div class="hero-card-lovable text-center">
-        <div class="logo-placeholder-box">
-          <!-- Substitua o src="logo-colegio.png" pelo arquivo da sua logo quando desejar -->
-          <img src="logo-colegio.png" alt="Logo do C.E.I.A.S" class="logo-colegio-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <!-- HERO BANNER VIVO COM LOGO -->
+      <div class="hero-card-vibrant text-center glow-card">
+        <div class="hero-sparkle-badge"><i class="fa-solid fa-sparkles"></i> Tradição & Inovação no Campo</div>
+        <div class="logo-placeholder-box glow-hover">
+          <img src="logo-colegio.png" alt="Logo C.E.I.A.S" class="logo-colegio-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <div class="logo-fallback">
-            <i class="fa-solid fa-shield-halved"></i>
-            <span>[ Insira a Foto da Logo do C.E.I.A.S Aqui ]</span>
+            <i class="fa-solid fa-shield-halved float-icon"></i>
+            <span>[ Sua Logo Aqui ]</span>
           </div>
         </div>
-        <h1 class="hero-title">Colégio Estadual do Campo Irmã Ambrósia Sabatovich</h1>
-        <p class="hero-subtitle">C.E.I.A.S — Tradição, Origem Católica e Excelência na Educação Pública do Campo</p>
+        <h1 class="hero-title gradient-text">Colégio Estadual do Campo Irmã Ambrósia Sabatovich</h1>
+        <p class="hero-subtitle">C.E.I.A.S — Formando Gerações com Valores Comunitários e Ensino do Campo</p>
       </div>
 
-      <!-- BLOCO 1: HISTÓRIA DO COLÉGIO -->
-      <article class="card-lovable">
-        <div class="badge-pill"><i class="fa-solid fa-seedling"></i> Origem e Trajetória Institucional</div>
+      <!-- HISTÓRIA DA ESCOLA -->
+      <article class="card-vibrant card-hover-rise">
+        <div class="badge-pill pulse-badge"><i class="fa-solid fa-seedling"></i> Origem e Trajetória</div>
         <h2 class="card-title">A História e Construção do C.E.I.A.S</h2>
 
         <p class="paragraph-lead">
-          A história do <strong>Colégio Estadual do Campo Irmã Ambrósia Sabatovich (C.E.I.A.S)</strong> teve início na década de 1970, movida pelo esforço comunitário de famílias rurais que buscavam garantir o direito fundamental à educação para seus filhos no próprio campo.
+          A história do <strong>Colégio Estadual do Campo Irmã Ambrósia Sabatovich (C.E.I.A.S)</strong> teve início na década de 1970, impulsionada pelo esforço comunitário de famílias rurais em busca de ensino gratuito e de qualidade para seus filhos.
         </p>
 
         <p class="paragraph-text">
-          Sua fundação esteve profundamente ligada a trabalhos sociais e comunitários de <strong>origem católica</strong>, voltados ao acolhimento das famílias agrícolas e ao desenvolvimento humano da região. Nos primeiros anos, as aulas aconteciam em espaços comunitários adaptados com a ajuda direta dos moradores.
+          Sua fundação esteve profundamente ligada a trabalhos sociais e comunitários de <strong>origem católica</strong>, voltados ao acolhimento das famílias agrícolas da região. Nos primeiros anos, as turmas funcionavam em salas comunitárias erguidas pela própria comunidade.
         </p>
 
         <p class="paragraph-text">
-          Com o passar das décadas, a instituição oficializou-se e integrou-se à rede pública de ensino do Estado do Paraná, consolidando-se como uma <strong>Escola Pública Estadual totalmente Gratuita</strong>. Foram erguidas instalações modernas com salas de aula, biblioteca, laboratórios e quadra poliesportiva.
+          Com o crescimento da população do campo, a instituição integrou-se à rede pública do Estado do Paraná, consolidando-se como uma <strong>Escola Pública Estadual 100% Gratuita</strong>. Foram construídos blocos em alvenaria, laboratórios, biblioteca e quadra coberta.
         </p>
 
         <p class="paragraph-text">
-          Hoje, o C.E.I.A.S preserva orgulhosamente suas raízes históricas de cooperação e valores éticos, oferecendo ensino de excelência para os jovens do campo do 6º ao 9º ano do Ensino Fundamental e do 1º ao 3º ano do Ensino Médio.
+          Hoje, o C.E.I.A.S une suas raízes comunitárias às tecnologias modernas de ensino, acolhendo alunos do Ensino Fundamental II (6º ao 9º ano) e Ensino Médio (1º ao 3º ano).
         </p>
 
+        <!-- TIMELINE DINÂMICA -->
         <div class="timeline-box">
-          <h3 class="timeline-heading"><i class="fa-solid fa-timeline"></i> Linha do Tempo da Nossa História</h3>
+          <h3 class="timeline-heading"><i class="fa-solid fa-timeline"></i> Marcos da Nossa Trajetória</h3>
           <div class="timeline-grid">
-            <div class="timeline-card">
+            <div class="timeline-card interaction-card">
               <span class="timeline-year">1972</span>
-              <p>Início das primeiras turmas em espaço comunitário no campo.</p>
+              <p>Primeiras salas comunitárias erguidas na área rural.</p>
             </div>
-            <div class="timeline-card">
+            <div class="timeline-card interaction-card">
               <span class="timeline-year">1988</span>
-              <p>Consolidação e oficialização como Escola Pública Estadual Gratuita.</p>
+              <p>Oficialização como Escola Pública Estadual Gratuita.</p>
             </div>
-            <div class="timeline-card">
+            <div class="timeline-card interaction-card">
               <span class="timeline-year">2005</span>
-              <p>Inauguração dos laboratórios de informática, ciências e quadra coberta.</p>
+              <p>Inauguração dos laboratórios e quadra coberta.</p>
             </div>
-            <div class="timeline-card">
-              <span class="timeline-year">Presente</span>
-              <p>Referência em educação pública do campo, acessibilidade e tecnologia.</p>
+            <div class="timeline-card interaction-card">
+              <span class="timeline-year">Hoje</span>
+              <p>Inovação tecnológica, acessibilidade e ensino sustentável.</p>
             </div>
           </div>
         </div>
       </article>
 
-      <!-- BLOCO 2: HISTÓRIA E FOTO DA IRMÃ AMBRÓSIA SABATOVICH -->
-      <article class="card-lovable">
-        <div class="badge-pill"><i class="fa-solid fa-cross"></i> Nossa Patrona e Inspiração</div>
+      <!-- HISTÓRIA E FOTO DA PATRONA IRMÃ AMBRÓSIA -->
+      <article class="card-vibrant card-hover-rise">
+        <div class="badge-pill pulse-badge"><i class="fa-solid fa-cross"></i> Nossa Inspiradora</div>
         <h2 class="card-title">Irmã Ambrósia Sabatovich: Vida e Legado</h2>
 
         <div class="patron-grid">
-          <div class="patron-card">
+          <div class="patron-card float-card">
             <div class="patron-img-wrapper">
-              <!-- Substitua o arquivo da foto por foto-irma-ambrosia.jpg -->
-              <img src="foto-irma-ambrosia.jpg" alt="Foto da Irmã Ambrósia Sabatovich" onerror="this.src='https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=400';">
-              <span class="patron-tag"><i class="fa-solid fa-cross"></i> Origem Católica</span>
+              <img src="foto-irma-ambrosia.jpg" alt="Irmã Ambrósia Sabatovich" onerror="this.src='https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=400';">
+              <span class="patron-tag"><i class="fa-solid fa-heart"></i> Origem Católica</span>
             </div>
             <h3 class="patron-name">Irmã Ambrósia Sabatovich</h3>
             <p class="patron-role">Patrona e Inspiradora do Colégio</p>
@@ -148,19 +150,19 @@
 
           <div class="patron-text">
             <p class="paragraph-lead">
-              Nascida em uma família de profunda fé católica e valores comunitários, a Irmã Ambrósia Sabatovich dedicou toda a sua trajetória religiosa e profissional à missão de educar, acolher e proteger crianças e jovens do campo.
+              Nascida em uma família de sólida fé católica e valores comunitários, a Irmã Ambrósia Sabatovich dedicou a sua vida à missão de educar, acolher e transformar a realidade das crianças e jovens do campo.
             </p>
 
             <p class="paragraph-text">
-              Ao chegar à comunidade rural, atuou diretamente visitando os lares dos trabalhadores agrícolas, incentivando os pais a matricular seus filhos e garantindo que nenhuma criança ficasse sem acesso à alfabetização por falta de transporte ou recursos.
+              Ao atuar na comunidade rural, visitava as famílias agrícolas, mobilizava doações e lutava para que nenhuma criança ficasse sem acesso às salas de aula por falta de condições financeiras ou de transporte.
             </p>
 
             <p class="paragraph-text">
-              Sua visão educacional unia o rigor científico com o acolhimento afetuoso e fraterno, promovendo o respeito à terra e o orgulho das origens rurais.
+              Sua filosofia de ensino combinava disciplina acadêmica com afeto, valorização da agricultura familiar e solidariedade cristã.
             </p>
 
             <p class="paragraph-text">
-              O nome do nosso colégio honra para sempre a memória de sua fundadora. Seu legado espiritual e pedagógico fundamenta até hoje os pilares de igualdade e gratuidade no C.E.I.A.S.
+              O C.E.I.A.S e todos os seus estudantes mantêm viva a memória e a paixão de sua patrona na construção diária do colégio.
             </p>
           </div>
         </div>
@@ -173,20 +175,20 @@
     <!-- ========================================================== -->
     <section id="tab-ensino" class="tab-content">
       <div class="section-header text-center">
-        <span class="badge-pill"><i class="fa-solid fa-graduation-cap"></i> Oferta Educacional</span>
+        <span class="badge-pill"><i class="fa-solid fa-graduation-cap"></i> Formação Cidadã</span>
         <h2 class="section-title">Etapas de Ensino e Grade Curricular</h2>
-        <p class="section-subtitle">O C.E.I.A.S é uma instituição **Pública e 100% Gratuita**, sem cobrança de mensalidades ou taxas.</p>
+        <p class="section-subtitle">O C.E.I.A.S é uma instituição <strong>Pública e 100% Gratuita</strong>.</p>
       </div>
 
-      <div class="public-banner-lovable">
+      <div class="public-banner-vibrant">
         <div class="banner-content">
-          <i class="fa-solid fa-building-columns banner-icon"></i>
+          <div class="banner-icon pulse-glow"><i class="fa-solid fa-building-columns"></i></div>
           <div>
             <h3>Escola Pública Estadual Gratuita</h3>
-            <p>Ensino Fundamental II (6º ao 9º) e Ensino Médio (1º ao 3º) com alimentação, transporte e materiais didáticos garantidos pelo Estado.</p>
+            <p>Ensino Fundamental II e Médio com merenda de qualidade, transporte gratuito e material escolar.</p>
           </div>
         </div>
-        <span class="status-pill">100% Gratuito</span>
+        <span class="status-pill-vibrant"><i class="fa-solid fa-check"></i> 100% Gratuito</span>
       </div>
 
       <div class="subtabs-control">
@@ -198,40 +200,38 @@
         </button>
       </div>
 
-      <!-- SUB-ABA FUNDAMENTAL -->
       <div id="subtab-fundamental" class="subtab-pane active">
-        <div class="card-lovable">
-          <h3>Grade Curricular — Ensino Fundamental II (6º ao 9º Ano)</h3>
-          <p class="paragraph-text">Foco na alfabetização científica, raciocínio lógico-matemático, expressão linguística e formação de cidadãos conscientes.</p>
+        <div class="card-vibrant">
+          <h3>Grade Curricular — Ensino Fundamental II</h3>
+          <p class="paragraph-text">Base acadêmica sólida para o desenvolvimento do raciocínio lógico e consciência social.</p>
           <div class="chips-grid">
-            <span class="subject-chip"><i class="fa-solid fa-book"></i> Língua Portuguesa</span>
-            <span class="subject-chip"><i class="fa-solid fa-calculator"></i> Matemática</span>
-            <span class="subject-chip"><i class="fa-solid fa-flask"></i> Ciências Naturais</span>
-            <span class="subject-chip"><i class="fa-solid fa-landmark"></i> História</span>
-            <span class="subject-chip"><i class="fa-solid fa-earth-americas"></i> Geografia</span>
-            <span class="subject-chip"><i class="fa-solid fa-language"></i> Língua Inglesa</span>
-            <span class="subject-chip"><i class="fa-solid fa-palette"></i> Arte</span>
-            <span class="subject-chip"><i class="fa-solid fa-volleyball"></i> Educação Física</span>
-            <span class="subject-chip"><i class="fa-solid fa-hands-holding"></i> Ensino Religioso / Ética</span>
+            <span class="subject-chip-vibrant"><i class="fa-solid fa-book"></i> Língua Portuguesa</span>
+            <span class="subject-chip-vibrant"><i class="fa-solid fa-calculator"></i> Matemática</span>
+            <span class="subject-chip-vibrant"><i class="fa-solid fa-flask"></i> Ciências Naturais</span>
+            <span class="subject-chip-vibrant"><i class="fa-solid fa-landmark"></i> História</span>
+            <span class="subject-chip-vibrant"><i class="fa-solid fa-earth-americas"></i> Geografia</span>
+            <span class="subject-chip-vibrant"><i class="fa-solid fa-language"></i> Língua Inglesa</span>
+            <span class="subject-chip-vibrant"><i class="fa-solid fa-palette"></i> Arte</span>
+            <span class="subject-chip-vibrant"><i class="fa-solid fa-volleyball"></i> Educação Física</span>
+            <span class="subject-chip-vibrant"><i class="fa-solid fa-hands-holding"></i> Ensino Religioso / Ética</span>
           </div>
         </div>
       </div>
 
-      <!-- SUB-ABA MÉDIO -->
       <div id="subtab-medio" class="subtab-pane">
-        <div class="card-lovable">
-          <h3>Grade Curricular — Ensino Médio (1º ao 3º Ano)</h3>
-          <p class="paragraph-text">Preparação completa para vestibulares, ENEM, ingresso no mercado de trabalho e itinerários formativos do campo.</p>
+        <div class="card-vibrant">
+          <h3>Grade Curricular — Ensino Médio</h3>
+          <p class="paragraph-text">Preparação intensiva para ENEM, Vestibulares e qualificação do campo.</p>
           <div class="chips-grid">
-            <span class="subject-chip"><i class="fa-solid fa-book-open"></i> Língua Portuguesa & Literatura</span>
-            <span class="subject-chip"><i class="fa-solid fa-square-root-variable"></i> Matemática e suas Tecnologias</span>
-            <span class="subject-chip"><i class="fa-solid fa-atom"></i> Física</span>
-            <span class="subject-chip"><i class="fa-solid fa-vial"></i> Química</span>
-            <span class="subject-chip"><i class="fa-solid fa-dna"></i> Biologia</span>
-            <span class="subject-chip"><i class="fa-solid fa-brain"></i> Filosofia e Sociologia</span>
-            <span class="subject-chip"><i class="fa-solid fa-globe"></i> História e Geografia</span>
-            <span class="subject-chip"><i class="fa-solid fa-language"></i> Língua Inglesa</span>
-            <span class="subject-chip"><i class="fa-solid fa-tractor"></i> Práticas Agrícolas & Agroecologia</span>
+            <span class="subject-chip-vibrant"><i class="fa-solid fa-book-open"></i> Língua Portuguesa & Literatura</span>
+            <span class="subject-chip-vibrant"><i class="fa-solid fa-square-root-variable"></i> Matemática</span>
+            <span class="subject-chip-vibrant"><i class="fa-solid fa-atom"></i> Física</span>
+            <span class="subject-chip-vibrant"><i class="fa-solid fa-vial"></i> Química</span>
+            <span class="subject-chip-vibrant"><i class="fa-solid fa-dna"></i> Biologia</span>
+            <span class="subject-chip-vibrant"><i class="fa-solid fa-brain"></i> Filosofia e Sociologia</span>
+            <span class="subject-chip-vibrant"><i class="fa-solid fa-globe"></i> História e Geografia</span>
+            <span class="subject-chip-vibrant"><i class="fa-solid fa-language"></i> Língua Inglesa</span>
+            <span class="subject-chip-vibrant"><i class="fa-solid fa-tractor"></i> Práticas Agrícolas</span>
           </div>
         </div>
       </div>
@@ -242,83 +242,83 @@
     <!-- ========================================================== -->
     <section id="tab-infraestrutura" class="tab-content">
       <div class="section-header text-center">
-        <span class="badge-pill"><i class="fa-solid fa-school-flag"></i> Instalações do Colégio</span>
+        <span class="badge-pill"><i class="fa-solid fa-school-flag"></i> Ambientes</span>
         <h2 class="section-title">Infraestrutura Escolar e Acessibilidade</h2>
-        <p class="section-subtitle">Espaços adaptados, funcionais e equipados para o aprendizado no campo.</p>
+        <p class="section-subtitle">Instalações completas, acessíveis e adaptadas.</p>
       </div>
 
       <div class="infra-grid">
-        <div class="infra-card-lovable">
+        <div class="infra-card-vibrant">
           <div class="infra-icon"><i class="fa-solid fa-wheelchair"></i></div>
-          <h4>Escolas com Acessibilidade</h4>
-          <p>Rampas de acesso, nivelamento de pisos e sinalização para livre circulação.</p>
+          <h4>Escola com Acessibilidade</h4>
+          <p>Rampas suaves de acesso e sinalização adaptada.</p>
         </div>
-        <div class="infra-card-lovable">
+        <div class="infra-card-vibrant">
           <div class="infra-icon"><i class="fa-solid fa-person-walking-with-cane"></i></div>
-          <h4>Dependências com Acessibilidade</h4>
-          <p>Corredores amplos, portas dimensionadas e barras de apoio em locais estratégicos.</p>
+          <h4>Dependências Acessíveis</h4>
+          <p>Corredores amplos com piso nivelado e barras de apoio.</p>
         </div>
-        <div class="infra-card-lovable">
+        <div class="infra-card-vibrant">
           <div class="infra-icon"><i class="fa-solid fa-restroom"></i></div>
-          <h4>Sanitário com Acessibilidade</h4>
-          <p>Banheiros adaptados conforme normas para PWDs.</p>
+          <h4>Sanitário Acessível</h4>
+          <p>Banheiros totalmente adaptados para pessoas com deficiência.</p>
         </div>
-        <div class="infra-card-lovable">
+        <div class="infra-card-vibrant">
           <div class="infra-icon"><i class="fa-solid fa-utensils"></i></div>
           <h4>Alimentação Fornecida</h4>
-          <p>Merenda escolar pública, nutritiva e gratuita para todos os alunos.</p>
+          <p>Merenda pública de alta qualidade nutricional.</p>
         </div>
-        <div class="infra-card-lovable">
+        <div class="infra-card-vibrant">
           <div class="infra-icon"><i class="fa-solid fa-faucet-drip"></i></div>
           <h4>Água Filtrada</h4>
-          <p>Bebedouros modernos com purificação contínua de água.</p>
+          <p>Bebedouros modernos higienizados diariamente.</p>
         </div>
-        <div class="infra-card-lovable">
+        <div class="infra-card-vibrant">
           <div class="infra-icon"><i class="fa-solid fa-door-closed"></i></div>
-          <h4>Sanitário Dentro da Escola</h4>
-          <p>Instalações higienizadas localizadas no prédio principal.</p>
+          <h4>Sanitários Internos</h4>
+          <p>Banheiros mantidos limpos e confortáveis no prédio principal.</p>
         </div>
-        <div class="infra-card-lovable">
+        <div class="infra-card-vibrant">
           <div class="infra-icon"><i class="fa-solid fa-book-bookmark"></i></div>
           <h4>Biblioteca Organizada</h4>
-          <p>Acervo didático e de literatura para estudos e pesquisas.</p>
+          <p>Acervo diversificado de literatura e pesquisa.</p>
         </div>
-        <div class="infra-card-lovable">
+        <div class="infra-card-vibrant">
           <div class="infra-icon"><i class="fa-solid fa-kitchen-set"></i></div>
           <h4>Cozinha Industrial</h4>
-          <p>Espaço higienizado para preparação adequada da alimentação.</p>
+          <p>Estrutura equipada para preparo higiênico das refeições.</p>
         </div>
-        <div class="infra-card-lovable">
+        <div class="infra-card-vibrant">
           <div class="infra-icon"><i class="fa-solid fa-laptop-code"></i></div>
           <h4>Láb. de Informática</h4>
-          <p>Computadores com internet rápida para aulas práticas de tecnologia.</p>
+          <p>Computadores com internet rápida para os estudantes.</p>
         </div>
-        <div class="infra-card-lovable">
+        <div class="infra-card-vibrant">
           <div class="infra-icon"><i class="fa-solid fa-flask-vial"></i></div>
           <h4>Láb. de Ciências</h4>
-          <p>Equipamentos para aulas práticas de biologia, química e física.</p>
+          <p>Espaço para experimentos práticos e pesquisas.</p>
         </div>
-        <div class="infra-card-lovable">
+        <div class="infra-card-vibrant">
           <div class="infra-icon"><i class="fa-solid fa-volleyball"></i></div>
-          <h4>Quadra de Esportes</h4>
-          <p>Quadra coberta para educação física, jogos e eventos comunitários.</p>
+          <h4>Quadra Poliesportiva</h4>
+          <p>Quadra coberta para esportes e eventos festivos.</p>
         </div>
-        <div class="infra-card-lovable">
+        <div class="infra-card-vibrant">
           <div class="infra-icon"><i class="fa-solid fa-user-tie"></i></div>
           <h4>Sala da Diretoria & Pedagogia</h4>
-          <p>Espaços reservados para atendimento às famílias e planejamento escolar.</p>
+          <p>Atendimento acolhedor às famílias e comunidade.</p>
         </div>
       </div>
     </section>
 
     <!-- ========================================================== -->
-    <!-- ABA 4: GALERIA DE FOTOS POR SUB-ABAS                       -->
+    <!-- ABA 4: GALERIA INTERATIVA                                  -->
     <!-- ========================================================== -->
     <section id="tab-galeria" class="tab-content">
       <div class="section-header text-center">
         <span class="badge-pill"><i class="fa-solid fa-camera"></i> Registros Visuais</span>
-        <h2 class="section-title">Banco de Fotos do C.E.I.A.S</h2>
-        <p class="section-subtitle">Navegue pelas fotos internas, externas e dos eventos realizados no colégio.</p>
+        <h2 class="section-title">Galeria de Fotos do Colégio</h2>
+        <p class="section-subtitle">Nossos ambientes e momentos mais marcantes.</p>
       </div>
 
       <div class="subtabs-control">
@@ -329,61 +329,54 @@
           <i class="fa-solid fa-tree"></i> Fotos Externas
         </button>
         <button class="gallery-filter-btn" onclick="switchGalleryTab(event, 'gal-eventos')">
-          <i class="fa-solid fa-bullhorn"></i> Fotos de Eventos
+          <i class="fa-solid fa-bullhorn"></i> Eventos
         </button>
       </div>
 
-      <!-- GALERIA INTERNA -->
       <div id="gal-interna" class="gallery-pane active">
         <div class="gallery-grid">
-          <div class="gallery-item-lovable" onclick="openLightbox('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=800', 'Laboratório de Informática')">
-            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=400" alt="Laboratório de Informática">
-            <div class="gal-overlay"><span><i class="fa-solid fa-expand"></i> Laboratório de Informática</span></div>
+          <div class="gallery-item-vibrant" onclick="openLightbox('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=800', 'Laboratório de Informática')">
+            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=400" alt="Informática">
+            <div class="gal-overlay"><span><i class="fa-solid fa-maximize"></i> Ampliar Imagem</span></div>
           </div>
-          <div class="gallery-item-lovable" onclick="openLightbox('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=800', 'Biblioteca Escolar')">
+          <div class="gallery-item-vibrant" onclick="openLightbox('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=800', 'Biblioteca Escolar')">
             <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=400" alt="Biblioteca">
-            <div class="gal-overlay"><span><i class="fa-solid fa-expand"></i> Biblioteca Escolar</span></div>
+            <div class="gal-overlay"><span><i class="fa-solid fa-maximize"></i> Ampliar Imagem</span></div>
           </div>
-          <div class="gallery-item-lovable" onclick="openLightbox('https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&q=80&w=800', 'Sala de Aula Acessível')">
+          <div class="gallery-item-vibrant" onclick="openLightbox('https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&q=80&w=800', 'Sala de Aula Acessível')">
             <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&q=80&w=400" alt="Sala de Aula">
-            <div class="gal-overlay"><span><i class="fa-solid fa-expand"></i> Sala de Aula Acessível</span></div>
+            <div class="gal-overlay"><span><i class="fa-solid fa-maximize"></i> Ampliar Imagem</span></div>
           </div>
         </div>
       </div>
 
-      <!-- GALERIA EXTERNA -->
       <div id="gal-externa" class="gallery-pane">
         <div class="gallery-grid">
-          <div class="gallery-item-lovable" onclick="openLightbox('https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=800', 'Quadra Poliesportiva Coberta')">
-            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=400" alt="Quadra Poliesportiva">
-            <div class="gal-overlay"><span><i class="fa-solid fa-expand"></i> Quadra Poliesportiva</span></div>
+          <div class="gallery-item-vibrant" onclick="openLightbox('https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=800', 'Quadra Coberta')">
+            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=400" alt="Quadra">
+            <div class="gal-overlay"><span><i class="fa-solid fa-maximize"></i> Ampliar Imagem</span></div>
           </div>
-          <div class="gallery-item-lovable" onclick="openLightbox('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800', 'Área Verde e Horta do Campo')">
-            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=400" alt="Horta e Área Verde">
-            <div class="gal-overlay"><span><i class="fa-solid fa-expand"></i> Área Verde & Horta do Campo</span></div>
+          <div class="gallery-item-vibrant" onclick="openLightbox('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800', 'Horta do Campo')">
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=400" alt="Horta">
+            <div class="gal-overlay"><span><i class="fa-solid fa-maximize"></i> Ampliar Imagem</span></div>
           </div>
         </div>
       </div>
 
-      <!-- GALERIA EVENTOS -->
       <div id="gal-eventos" class="gallery-pane">
         <div class="gallery-grid">
-          <div class="gallery-item-lovable" onclick="openLightbox('https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800', 'Formatura das Turmas')">
+          <div class="gallery-item-vibrant" onclick="openLightbox('https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800', 'Formatura')">
             <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=400" alt="Formatura">
-            <div class="gal-overlay"><span><i class="fa-solid fa-expand"></i> Formatura dos Alunos</span></div>
-          </div>
-          <div class="gallery-item-lovable" onclick="openLightbox('https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=800', 'Feira de Saberes e Cultura')">
-            <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=400" alt="Feira Cultural">
-            <div class="gal-overlay"><span><i class="fa-solid fa-expand"></i> Feira de Saberes do Campo</span></div>
+            <div class="gal-overlay"><span><i class="fa-solid fa-maximize"></i> Ampliar Imagem</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- MODAL LIGHTBOX PARA EXPANDIR FOTOS -->
+    <!-- LIGHTBOX MODAL -->
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">
       <span class="lightbox-close">&times;</span>
-      <img id="lightbox-img" src="" alt="Imagem Ampliada">
+      <img id="lightbox-img" src="" alt="Ampliada">
       <div id="lightbox-caption"></div>
     </div>
 
@@ -392,165 +385,155 @@
     <!-- ========================================================== -->
     <section id="tab-equipe" class="tab-content">
       <div class="section-header text-center">
-        <span class="badge-pill"><i class="fa-solid fa-users"></i> Corpo Escolar</span>
-        <h2 class="section-title">Equipe Escolar, Depoimentos e Certificados</h2>
-        <p class="section-subtitle">Conheça quem faz a gestão, leciona e a comunidade que apoia o C.E.I.A.S.</p>
+        <span class="badge-pill"><i class="fa-solid fa-users"></i> Pessoas & Valores</span>
+        <h2 class="section-title">Nossa Equipe e Depoimentos</h2>
+        <p class="section-subtitle">Quem faz o dia a dia do C.E.I.A.S acontecer.</p>
       </div>
 
-      <!-- GRID DA EQUIPE ESCOLAR -->
       <div class="team-grid">
-        <div class="team-card-lovable">
-          <div class="team-avatar"><i class="fa-solid fa-user-gear"></i></div>
-          <h4>Diretoria Escolar</h4>
-          <p>Gestão participativa, comunitária e transparente.</p>
+        <div class="team-card-vibrant">
+          <div class="team-avatar pulse-glow"><i class="fa-solid fa-user-gear"></i></div>
+          <h4>Diretoria</h4>
+          <p>Gestão participativa e transparente.</p>
         </div>
-        <div class="team-card-lovable">
-          <div class="team-avatar"><i class="fa-solid fa-person-chalkboard"></i></div>
-          <h4>Equipe Pedagógica</h4>
-          <p>Acompanhamento pedagógico e suporte aos estudantes.</p>
+        <div class="team-card-vibrant">
+          <div class="team-avatar pulse-glow"><i class="fa-solid fa-person-chalkboard"></i></div>
+          <h4>Pedagogas</h4>
+          <p>Apoio contínuo no aprendizado.</p>
         </div>
-        <div class="team-card-lovable">
-          <div class="team-avatar"><i class="fa-solid fa-chalkboard-user"></i></div>
-          <h4>Corpo Docente (Professores)</h4>
-          <p>Professores qualificados dedicados ao ensino do campo.</p>
+        <div class="team-card-vibrant">
+          <div class="team-avatar pulse-glow"><i class="fa-solid fa-chalkboard-user"></i></div>
+          <h4>Professores</h4>
+          <p>Corpo docente qualificado.</p>
         </div>
-        <div class="team-card-lovable">
-          <div class="team-avatar"><i class="fa-solid fa-file-signature"></i></div>
-          <h4>Secretarias & Apoio</h4>
-          <p>Atendimento de matrículas, históricos e certificados.</p>
+        <div class="team-card-vibrant">
+          <div class="team-avatar pulse-glow"><i class="fa-solid fa-file-signature"></i></div>
+          <h4>Secretaria</h4>
+          <p>Atendimento rápido de documentos.</p>
         </div>
       </div>
 
-      <!-- SEÇÃO DE DEPOIMENTOS -->
       <div class="testimonials-wrapper">
-        <h3 class="subsection-title"><i class="fa-solid fa-comments"></i> Depoimentos de Alunos, Ex-Alunos e Professores</h3>
+        <h3 class="subsection-title"><i class="fa-solid fa-comments"></i> Depoimentos da Comunidade</h3>
         <div class="testimonials-grid">
           <div class="testimonial-card">
             <i class="fa-solid fa-quote-left quote-icon"></i>
-            <p>"O C.E.I.A.S me proporcionou uma base acadêmica sólida para entrar na faculdade sem que eu precisasse abandonar minhas raízes no campo."</p>
+            <p>"O C.E.I.A.S foi a minha base para entrar na faculdade. Sou grato a todos os professores!"</p>
             <div class="testimonial-author">
-              <strong>Lucas M. Silva</strong>
-              <span>Ex-Aluno (Engenharia Agronômica)</span>
+              <strong>Lucas Silva</strong>
+              <span>Ex-Aluno</span>
             </div>
           </div>
-
           <div class="testimonial-card">
             <i class="fa-solid fa-quote-left quote-icon"></i>
-            <p>"Lecionar no C.E.I.A.S é uma experiência enriquecedora. A integração entre a comunidade e a escola torna a aprendizagem muito mais significativa."</p>
+            <p>"Lecionar no campo é transformador. Uma escola pública viva e acolhedora."</p>
             <div class="testimonial-author">
-              <strong>Profª. Rosana Oliveira</strong>
-              <span>Docente de Ciências e Biologia</span>
+              <strong>Profª. Rosana</strong>
+              <span>Docente</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- CERTIFICADOS E RECONHECIMENTOS -->
-      <div class="cert-card-lovable">
+      <div class="cert-card-vibrant glow-card">
         <div class="cert-icon"><i class="fa-solid fa-award"></i></div>
         <div>
-          <h4>Certificados & Reconhecimento Institucional</h4>
-          <p>O C.E.I.A.S possui prêmios e selos de qualidade estadual por boas práticas na Educação do Campo, acessibilidade inclusiva e gestão participativa.</p>
+          <h4>Certificados de Qualidade Institucional</h4>
+          <p>Selo de boas práticas pedagógicas, gestão participativa e acessibilidade inclusiva na educação pública do campo.</p>
         </div>
       </div>
     </section>
 
     <!-- ========================================================== -->
-    <!-- ABA 6: INDICADORES E GRÁFICO DE RENDIMENTO                -->
+    <!-- ABA 6: INDICADORES DINÂMICOS                              -->
     <!-- ========================================================== -->
     <section id="tab-indicadores" class="tab-content">
       <div class="section-header text-center">
-        <span class="badge-pill"><i class="fa-solid fa-chart-line"></i> Transparência Educacional</span>
-        <h2 class="section-title">Detalhamento de Rendimento Escolar</h2>
-        <p class="section-subtitle">Gráfico interativo com taxas de **Aprovação, Reprovação e Abandono**, separadas por ano escolar do Ensino Fundamental II e Ensino Médio.</p>
+        <span class="badge-pill"><i class="fa-solid fa-chart-line"></i> Indicadores</span>
+        <h2 class="section-title">Desempenho por Ano Escolar</h2>
+        <p class="section-subtitle">Taxas de Aprovação, Reprovação e Abandono (6º ao 9º Fund. e 1º ao 3º Médio).</p>
       </div>
 
-      <div class="chart-card-lovable">
+      <div class="chart-card-vibrant glow-card">
         <canvas id="chartRendimento"></canvas>
-        <div class="chart-legend-box">
-          <div class="legend-item"><span class="legend-color aprovacao"></span> % Aprovação</div>
-          <div class="legend-item"><span class="legend-color reprovacao"></span> % Reprovação</div>
-          <div class="legend-item"><span class="legend-color abandono"></span> % Abandono</div>
-        </div>
       </div>
     </section>
 
     <!-- ========================================================== -->
-    <!-- ABA 7: MATRÍCULA COM ASSISTENTE IA & WHATSAPP              -->
+    <!-- ABA 7: CHATBOT IA E WHATSAPP DINÂMICO                      -->
     <!-- ========================================================== -->
     <section id="tab-matricula" class="tab-content">
       <div class="section-header text-center">
-        <span class="badge-pill"><i class="fa-solid fa-robot"></i> Assistente Virtual</span>
-        <h2 class="section-title">Central de Matrículas com IA</h2>
-        <p class="section-subtitle">Tire suas dúvidas em tempo real com nossa Inteligência Artificial e envie o resumo da conversa direto para o WhatsApp do celular do colégio.</p>
+        <span class="badge-pill"><i class="fa-solid fa-robot"></i> Atendimento Inteligente</span>
+        <h2 class="section-title">Matrícula IA & Atendimento Vivo</h2>
+        <p class="section-subtitle">Converse com o assistente e envie o resumo direto para o WhatsApp da secretaria.</p>
       </div>
 
-      <div class="chat-wrapper-lovable">
+      <div class="chat-wrapper-vibrant glow-card">
         <div class="chat-header">
           <div class="chat-header-info">
-            <span class="online-dot"></span>
+            <span class="live-dot pulse-animation"></span>
             <i class="fa-solid fa-robot"></i>
             <span>Assistente C.E.I.A.S IA</span>
           </div>
-          <span class="badge-online">Online</span>
+          <span class="badge-online">Online Agora</span>
         </div>
 
         <div class="chat-body" id="chat-messages">
           <div class="msg msg-bot">
-            Olá! Sou o assistente virtual do <strong>C.E.I.A.S</strong>. Como posso ajudar com dúvidas sobre matrículas, transferência, documentos ou horários?
+            Olá! Sou o assistente virtual do <strong>C.E.I.A.S</strong>. Como posso te ajudar hoje sobre matrículas, documentos ou transporte?
           </div>
         </div>
 
         <div class="quick-chips">
-          <button class="chip-btn" onclick="sendQuickPrompt('Quais documentos preciso para a matrícula?')">Quais documentos preciso?</button>
+          <button class="chip-btn" onclick="sendQuickPrompt('Quais documentos preciso para a matrícula?')">Documentos Necessários</button>
           <button class="chip-btn" onclick="sendQuickPrompt('Quais os horários das aulas?')">Horários das Aulas</button>
-          <button class="chip-btn" onclick="sendQuickPrompt('Como funciona o transporte do campo?')">Transporte do Campo</button>
+          <button class="chip-btn" onclick="sendQuickPrompt('Como funciona o transporte do campo?')">Transporte Gratuito</button>
           <button class="chip-btn" onclick="sendQuickPrompt('A escola é 100% gratuita?')">É 100% Gratuita?</button>
         </div>
 
         <div class="chat-footer">
-          <input type="text" id="chat-input" placeholder="Digite sua pergunta..." onkeypress="handleKeyPress(event)">
+          <input type="text" id="chat-input" placeholder="Escreva sua pergunta..." onkeypress="handleKeyPress(event)">
           <button id="chat-send-btn" onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
         </div>
 
         <div class="whatsapp-action-area">
-          <button class="btn-whatsapp-send" onclick="sendToWhatsApp()">
-            <i class="fa-brands fa-whatsapp"></i> Enviar Conversa para o Celular/WhatsApp da Escola
+          <button class="btn-whatsapp-vibrant" onclick="sendToWhatsApp()">
+            <i class="fa-brands fa-whatsapp"></i> Mandar Conversa para o WhatsApp da Escola
           </button>
         </div>
       </div>
     </section>
 
     <!-- ========================================================== -->
-    <!-- ABA 8: NOTÍCIAS, CONTATO & LOCALIZAÇÃO                     -->
+    <!-- ABA 8: NOTÍCIAS & CONTATO                                  -->
     <!-- ========================================================== -->
     <section id="tab-contato" class="tab-content">
       <div class="section-header text-center">
-        <span class="badge-pill"><i class="fa-solid fa-envelope"></i> Comunicação & Localização</span>
-        <h2 class="section-title">Notícias, Contato e Localização</h2>
-        <p class="section-subtitle">Acompanhe comunicados recentes e saiba como falar diretamente com a secretaria do colégio.</p>
+        <span class="badge-pill"><i class="fa-solid fa-envelope"></i> Notícias e Contato</span>
+        <h2 class="section-title">Últimos Comunicados e Contatos</h2>
+        <p class="section-subtitle">Fique por dentro do que acontece no nosso colégio.</p>
       </div>
 
-      <!-- NOTÍCIAS E COMUNICADOS -->
-      <div class="news-grid" style="margin-bottom: 3rem;">
-        <article class="news-card">
-          <span class="news-tag"><i class="fa-solid fa-calendar"></i> Evento Escolar</span>
-          <h3>Feira de Saberes e Agroecologia 2026</h3>
-          <p>Apresentação de trabalhos e projetos práticos desenvolvidos pelos alunos do Ensino Médio e Fundamental II.</p>
+      <div class="news-grid">
+        <article class="news-card card-hover-rise">
+          <span class="news-tag"><i class="fa-solid fa-star"></i> Destaque</span>
+          <h3>Feira de Saberes do Campo 2026</h3>
+          <p>Apresentação de trabalhos inovadores de sustentabilidade e projetos práticos.</p>
           <span class="news-date">15 de Outubro de 2026</span>
         </article>
 
-        <article class="news-card">
-          <span class="news-tag"><i class="fa-solid fa-bullhorn"></i> Comunicado</span>
+        <article class="news-card card-hover-rise">
+          <span class="news-tag"><i class="fa-solid fa-bullhorn"></i> Aviso</span>
           <h3>Reunião de Pais e Mestres</h3>
-          <p>Convocação geral para alinhamento pedagógico e entrega dos boletins informativos.</p>
+          <p>Alinhamento de notas e entrega de boletins pedagógicos.</p>
           <span class="news-date">28 de Setembro de 2026</span>
         </article>
 
-        <article class="news-card">
-          <span class="news-tag"><i class="fa-solid fa-id-card"></i> Matrículas</span>
-          <h3>Período de Rematrícula e Novas Vagas</h3>
-          <p>Consulte a lista de documentos necessários usando nossa IA ou venha até a secretaria.</p>
+        <article class="news-card card-hover-rise">
+          <span class="news-tag"><i class="fa-solid fa-user-plus"></i> Vagas</span>
+          <h3>Rematrículas Abertas</h3>
+          <p>Procure a secretaria escolar com seus documentos ou consulte nossa IA na aba Matrícula.</p>
           <span class="news-date">Atendimento Contínuo</span>
         </article>
       </div>
@@ -558,37 +541,37 @@
 
   </main>
 
-  <!-- RODAPÉ INSTITUCIONAL COM CONTATOS E LOCALIZAÇÃO -->
+  <!-- RODAPÉ INSTITUCIONAL -->
   <footer class="footer">
     <div class="container footer-grid">
       <div class="footer-col">
         <div class="logo-group">
-          <div class="logo-badge"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="logo-badge glow-effect"><i class="fa-solid fa-graduation-cap"></i></div>
           <div class="logo-text">
-            <span class="brand-title" style="color:#ffffff;">C.E.I.A.S</span>
-            <span class="public-tag" style="color:#38bdf8;"><i class="fa-solid fa-building-columns"></i> Escola Pública Estadual</span>
+            <span class="brand-title" style="color:#fff;">C.E.I.A.S</span>
+            <span class="public-tag" style="color:#38bdf8;"><span class="live-dot"></span> Escola Pública Estatal</span>
           </div>
         </div>
         <p class="footer-desc">
           Colégio Estadual do Campo Irmã Ambrósia Sabatovich.<br>
-          Garantindo educação pública, gratuita, inclusiva e de qualidade para a comunidade rural.
+          Educação gratuita, acessível e de qualidade no campo.
         </p>
       </div>
 
       <div class="footer-col">
-        <h4><i class="fa-solid fa-phone"></i> Meios de Contato</h4>
+        <h4><i class="fa-solid fa-phone"></i> Fale Conosco</h4>
         <ul class="contact-list">
           <li><i class="fa-brands fa-whatsapp"></i> WhatsApp: (41) 99999-8888</li>
-          <li><i class="fa-solid fa-envelope"></i> Gmail: ceias.escola@escola.pr.gov.br</li>
-          <li><i class="fa-solid fa-clock"></i> Atendimento: Segunda a Sexta (07h30 às 17h00)</li>
+          <li><i class="fa-solid fa-envelope"></i> Email: ceias.escola@escola.pr.gov.br</li>
+          <li><i class="fa-solid fa-clock"></i> Horário: Seg a Sex (07h30 às 17h00)</li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4><i class="fa-solid fa-location-dot"></i> Localização</h4>
-        <p style="color:#cbd5e1; font-size:0.9rem;">Zona Rural — Comunidade Escolar do Campo</p>
-        <p style="color:#cbd5e1; font-size:0.88rem; margin-top:0.4rem;">Acesso Principal via Estrada do Campo</p>
-        <p class="public-badge-footer"><i class="fa-solid fa-shield-halved"></i> Escola Pública Estadual Gratuita</p>
+        <h4><i class="fa-solid fa-location-dot"></i> Endereço</h4>
+        <p style="color:#cbd5e1; font-size:0.9rem;">Comunidade Escolar da Zona Rural</p>
+        <p style="color:#cbd5e1; font-size:0.85rem; margin-top:0.3rem;">Acesso via Estrada Principal do Campo</p>
+        <p class="public-badge-footer"><i class="fa-solid fa-shield-halved"></i> Ensino Público Gratuito</p>
       </div>
     </div>
 
@@ -597,7 +580,6 @@
     </div>
   </footer>
 
-  <!-- JS Principal -->
   <script src="script.js"></script>
 </body>
 </html>
